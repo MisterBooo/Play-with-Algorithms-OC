@@ -62,31 +62,40 @@ static SortTestHelper *_instance;
  @param array 测试数组
  */
 - (void)testSort:(SortType )sortType array:(NSMutableArray *)array{
-    NSString *sortName = @"";
-    clock_t startTime = clock();
-    switch (sortType) {
-        case SortTypeSelection:
+    
+    __block NSMutableArray *arrayM = [NSMutableArray array];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *sortName = @"";
+        clock_t startTime = clock();
+        switch (sortType) {
+            case SortTypeSelection:
             {
-               array =  [self selectionSort:array];
+                arrayM =  [self selectionSort:array];
             }
-            break;
-        case SortTypeMerge:{
+                break;
+            case SortTypeMerge:{
                 
             }
-            break;
-        case SortTypeInsertion:{
-            
+                break;
+            case SortTypeInsertion:{
+                
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        default:
-            break;
-    }
-    clock_t endTime = clock();
-    
-    NSAssert([self isSorted:array],@"排序失败");
-    
-    NSLog(@"%@ :%lf s",sortName,(double)(endTime - startTime) / CLOCKS_PER_SEC );
+        clock_t endTime = clock();
+        
+        NSAssert([self isSorted:arrayM],@"排序失败");
+        
+        NSLog(@"%@ :%lf s",sortName,(double)(endTime - startTime) / CLOCKS_PER_SEC );
+
+    });
 }
+
+
+
+
 
 - (NSMutableArray *)selectionSort:(NSMutableArray *)array{
     for(int i = 0 ; i < array.count ; i ++){
