@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C987111ED966FF911EAC974 /* libPods-Play-with-Algorithms-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */; };
 		AA98EF661F1461C500582960 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF651F1461C500582960 /* main.m */; };
 		AA98EF691F1461C500582960 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF681F1461C500582960 /* AppDelegate.m */; };
 		AA98EF6C1F1461C500582960 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF6B1F1461C500582960 /* ViewController.m */; };
@@ -14,6 +15,7 @@
 		AA98EF711F1461C500582960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA98EF701F1461C500582960 /* Assets.xcassets */; };
 		AA98EF741F1461C500582960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA98EF721F1461C500582960 /* LaunchScreen.storyboard */; };
 		AA98EF7F1F1461C600582960 /* Play_with_Algorithms_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF7E1F1461C600582960 /* Play_with_Algorithms_OCTests.m */; };
+		AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF8C1F1477B800582960 /* SelectionSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		084016CF5B4F8FFCC7910CE1 /* Pods-Play-with-Algorithms-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play-with-Algorithms-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC.debug.xcconfig"; sourceTree = "<group>"; };
 		AA98EF611F1461C500582960 /* Play-with-Algorithms-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Algorithms-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF651F1461C500582960 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA98EF671F1461C500582960 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,6 +43,10 @@
 		AA98EF7A1F1461C600582960 /* Play-with-Algorithms-OCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Play-with-Algorithms-OCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF7E1F1461C600582960 /* Play_with_Algorithms_OCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Play_with_Algorithms_OCTests.m; sourceTree = "<group>"; };
 		AA98EF801F1461C600582960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA98EF8B1F1477B800582960 /* SelectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSort.h; sourceTree = "<group>"; };
+		AA98EF8C1F1477B800582960 /* SelectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSort.m; sourceTree = "<group>"; };
+		D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play-with-Algorithms-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play-with-Algorithms-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C987111ED966FF911EAC974 /* libPods-Play-with-Algorithms-OC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +68,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83F4738F1A9B752EA449C7B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9077AA9C25CD34C7793E0EC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				084016CF5B4F8FFCC7910CE1 /* Pods-Play-with-Algorithms-OC.debug.xcconfig */,
+				EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AA98EF581F1461C500582960 = {
 			isa = PBXGroup;
 			children = (
 				AA98EF631F1461C500582960 /* Play-with-Algorithms-OC */,
 				AA98EF7D1F1461C600582960 /* Play-with-Algorithms-OCTests */,
 				AA98EF621F1461C500582960 /* Products */,
+				9077AA9C25CD34C7793E0EC9 /* Pods */,
+				83F4738F1A9B752EA449C7B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,14 +108,7 @@
 		AA98EF631F1461C500582960 /* Play-with-Algorithms-OC */ = {
 			isa = PBXGroup;
 			children = (
-				AA98EF671F1461C500582960 /* AppDelegate.h */,
-				AA98EF681F1461C500582960 /* AppDelegate.m */,
-				AA98EF6A1F1461C500582960 /* ViewController.h */,
-				AA98EF6B1F1461C500582960 /* ViewController.m */,
-				AA98EF6D1F1461C500582960 /* Main.storyboard */,
-				AA98EF701F1461C500582960 /* Assets.xcassets */,
-				AA98EF721F1461C500582960 /* LaunchScreen.storyboard */,
-				AA98EF751F1461C500582960 /* Info.plist */,
+				AA98EF891F14778700582960 /* Class */,
 				AA98EF641F1461C500582960 /* Supporting Files */,
 			);
 			path = "Play-with-Algorithms-OC";
@@ -97,6 +117,14 @@
 		AA98EF641F1461C500582960 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA98EF671F1461C500582960 /* AppDelegate.h */,
+				AA98EF681F1461C500582960 /* AppDelegate.m */,
+				AA98EF6A1F1461C500582960 /* ViewController.h */,
+				AA98EF6B1F1461C500582960 /* ViewController.m */,
+				AA98EF6D1F1461C500582960 /* Main.storyboard */,
+				AA98EF701F1461C500582960 /* Assets.xcassets */,
+				AA98EF721F1461C500582960 /* LaunchScreen.storyboard */,
+				AA98EF751F1461C500582960 /* Info.plist */,
 				AA98EF651F1461C500582960 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -111,6 +139,23 @@
 			path = "Play-with-Algorithms-OCTests";
 			sourceTree = "<group>";
 		};
+		AA98EF891F14778700582960 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				AA98EF8A1F14778700582960 /* Sort */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		AA98EF8A1F14778700582960 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				AA98EF8B1F1477B800582960 /* SelectionSort.h */,
+				AA98EF8C1F1477B800582960 /* SelectionSort.m */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA98EF831F1461C600582960 /* Build configuration list for PBXNativeTarget "Play-with-Algorithms-OC" */;
 			buildPhases = (
+				468FA8E30513316B26D3F74A /* [CP] Check Pods Manifest.lock */,
 				AA98EF5D1F1461C500582960 /* Sources */,
 				AA98EF5E1F1461C500582960 /* Frameworks */,
 				AA98EF5F1F1461C500582960 /* Resources */,
+				983BE912E0E6C17948917DEA /* [CP] Embed Pods Frameworks */,
+				98444D1FB830F8151A68A5FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,11 +258,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		468FA8E30513316B26D3F74A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		983BE912E0E6C17948917DEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98444D1FB830F8151A68A5FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA98EF5D1F1461C500582960 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */,
 				AA98EF6C1F1461C500582960 /* ViewController.m in Sources */,
 				AA98EF691F1461C500582960 /* AppDelegate.m in Sources */,
 				AA98EF661F1461C500582960 /* main.m in Sources */,
@@ -351,6 +448,7 @@
 		};
 		AA98EF841F1461C600582960 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 084016CF5B4F8FFCC7910CE1 /* Pods-Play-with-Algorithms-OC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7NHU5364QV;
@@ -363,6 +461,7 @@
 		};
 		AA98EF851F1461C600582960 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7NHU5364QV;
