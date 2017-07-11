@@ -1,25 +1,27 @@
 //
-//  ViewController.m
+//  SortViewController.m
 //  Play-with-Algorithms-OC
 //
 //  Created by wuzhibo on 2017/7/11.
 //  Copyright © 2017年 CoderWoo. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "SortViewController.h"
-@interface ViewController ()
+#import "SelectionSortViewController.h"
+#import "SortCompareViewController.h"
+@interface SortViewController ()
 @property(nonatomic, strong) NSArray *dataSource;
+
 @end
 
-@implementation ViewController
+@implementation SortViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"排序基础",@"高级排序算法",@"堆和堆排序",@"二分搜索树",@"并查集",@"图的基础",@"最小生成树",@"最短路径"];
-    [self.tableView reloadData];
+    // Do any additional setup after loading the view.
+    self.dataSource = @[@"排序性能比较",@"插入排序法动画",@"归并排序法动画",@"快速排序法动画"];
+    
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -45,14 +47,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QMUICommonViewController *vc = [[QMUICommonViewController alloc] init];
-    vc.view.backgroundColor = [UIColor whiteColor];
     if (indexPath.row == 0) {
-        vc = [[SortViewController alloc] init];
+         vc = [[SortCompareViewController alloc] init];
     }
+    vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = self.dataSource[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
-
 }
+
 
 
 

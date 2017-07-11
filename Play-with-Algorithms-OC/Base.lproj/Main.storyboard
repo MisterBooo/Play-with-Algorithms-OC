@@ -41,7 +41,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ROf-JU-mh9">
             <objects>
-                <navigationController id="BIj-em-LVa" sceneMemberID="viewController">
+                <navigationController id="BIj-em-LVa" customClass="QMUINavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uK6-Wj-aZY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

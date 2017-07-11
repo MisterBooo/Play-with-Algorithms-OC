@@ -16,6 +16,10 @@
 		AA98EF741F1461C500582960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA98EF721F1461C500582960 /* LaunchScreen.storyboard */; };
 		AA98EF7F1F1461C600582960 /* Play_with_Algorithms_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF7E1F1461C600582960 /* Play_with_Algorithms_OCTests.m */; };
 		AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF8C1F1477B800582960 /* SelectionSort.m */; };
+		AA98EF901F14796500582960 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF8F1F14796500582960 /* SortViewController.m */; };
+		AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF931F147AAE00582960 /* SortTestHelper.m */; };
+		AA98EF971F14836300582960 /* SelectionSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF961F14836300582960 /* SelectionSortViewController.m */; };
+		AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF991F149C6000582960 /* SortCompareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,14 @@
 		AA98EF801F1461C600582960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA98EF8B1F1477B800582960 /* SelectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSort.h; sourceTree = "<group>"; };
 		AA98EF8C1F1477B800582960 /* SelectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSort.m; sourceTree = "<group>"; };
+		AA98EF8E1F14796500582960 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
+		AA98EF8F1F14796500582960 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
+		AA98EF921F147AAE00582960 /* SortTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortTestHelper.h; sourceTree = "<group>"; };
+		AA98EF931F147AAE00582960 /* SortTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortTestHelper.m; sourceTree = "<group>"; };
+		AA98EF951F14836300582960 /* SelectionSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSortViewController.h; sourceTree = "<group>"; };
+		AA98EF961F14836300582960 /* SelectionSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSortViewController.m; sourceTree = "<group>"; };
+		AA98EF981F149C6000582960 /* SortCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortCompareViewController.h; sourceTree = "<group>"; };
+		AA98EF991F149C6000582960 /* SortCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortCompareViewController.m; sourceTree = "<group>"; };
 		D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play-with-Algorithms-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play-with-Algorithms-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +154,7 @@
 		AA98EF891F14778700582960 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				AA98EF911F147A7400582960 /* Tool */,
 				AA98EF8A1F14778700582960 /* Sort */,
 			);
 			path = Class;
@@ -152,8 +165,23 @@
 			children = (
 				AA98EF8B1F1477B800582960 /* SelectionSort.h */,
 				AA98EF8C1F1477B800582960 /* SelectionSort.m */,
+				AA98EF8E1F14796500582960 /* SortViewController.h */,
+				AA98EF8F1F14796500582960 /* SortViewController.m */,
+				AA98EF951F14836300582960 /* SelectionSortViewController.h */,
+				AA98EF961F14836300582960 /* SelectionSortViewController.m */,
+				AA98EF981F149C6000582960 /* SortCompareViewController.h */,
+				AA98EF991F149C6000582960 /* SortCompareViewController.m */,
 			);
 			path = Sort;
+			sourceTree = "<group>";
+		};
+		AA98EF911F147A7400582960 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AA98EF921F147AAE00582960 /* SortTestHelper.h */,
+				AA98EF931F147AAE00582960 /* SortTestHelper.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +341,10 @@
 			files = (
 				AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */,
 				AA98EF6C1F1461C500582960 /* ViewController.m in Sources */,
+				AA98EF971F14836300582960 /* SelectionSortViewController.m in Sources */,
+				AA98EF901F14796500582960 /* SortViewController.m in Sources */,
+				AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */,
+				AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */,
 				AA98EF691F1461C500582960 /* AppDelegate.m in Sources */,
 				AA98EF661F1461C500582960 /* main.m in Sources */,
 			);
@@ -517,6 +549,7 @@
 				AA98EF851F1461C600582960 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA98EF861F1461C600582960 /* Build configuration list for PBXNativeTarget "Play-with-Algorithms-OCTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +558,7 @@
 				AA98EF881F1461C600582960 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
