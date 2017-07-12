@@ -34,6 +34,7 @@
     self.textField.delegate = self;
     self.textField.maximumTextLength = 6;
     self.textField.placeholder = @"请输入数字";
+    self.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.textField.font = UIFontMake(16);
     self.textField.layer.cornerRadius = 2;
     self.textField.layer.borderColor = UIColorSeparator.CGColor;
@@ -52,11 +53,9 @@
     CGFloat contentWidth = CGRectGetWidth(self.view.bounds) - UIEdgeInsetsGetHorizontalValue(padding);
     self.textField.frame = CGRectMake(padding.left, padding.top, contentWidth, 40);
     
-    CGFloat contentMinY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    CGFloat buttonSpacingHeight = 72;
-    CGSize buttonSize = CGSizeMake(260, 40);
+    CGSize buttonSize = CGSizeMake(contentWidth, 40);
     CGFloat buttonMinX = CGFloatGetCenter(CGRectGetWidth(self.view.bounds), buttonSize.width);
-    CGFloat buttonOffsetY = CGFloatGetCenter(buttonSpacingHeight, buttonSize.height);
+  
     self.button.frame = CGRectFlatMake(buttonMinX,CGRectGetMaxY(self.textField.frame) + 18, buttonSize.width, buttonSize.height);
     
     [self.button addTarget:self action:@selector(sortTest) forControlEvents:UIControlEventTouchUpInside];
@@ -68,8 +67,14 @@
 - (void)sortTest{
     [self.textField endEditing:YES];
     
-    NSMutableArray *array = [[SortTestHelper shareInstance] generateRandomArrayNumber:self.number rangeL:0 rangeR:self.number];
-    [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array];
+   NSMutableArray *array = [[SortTestHelper shareInstance] generateRandomArrayNumber:self.number rangeL:0 rangeR:self.number];
+   
+  [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array];
+  [[SortTestHelper shareInstance] testSort:SortTypeBubble array:array];
+  [[SortTestHelper shareInstance] testSort:SortTypeInsertion array:array];
+   
+ 
+  
 }
 #pragma mark - <QMUITextFieldDelegate>
 

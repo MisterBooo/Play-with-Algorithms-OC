@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
 typedef NS_ENUM(NSInteger,SortType){
     SortTypeSelection,
+    SortTypeBubble,
     SortTypeMerge,
     SortTypeInsertion,
 };
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger,SortType){
  @param sortType 排序算法
  @param array 测试数组
  */
-- (void)testSort:(SortType )sortType array:(NSMutableArray *)array;
+- (double)testSort:(SortType )sortType array:(NSMutableArray *)array;
 
 
 

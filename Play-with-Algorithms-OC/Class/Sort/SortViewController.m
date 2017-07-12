@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.dataSource = @[@"排序性能比较",@"插入排序法动画",@"归并排序法动画",@"快速排序法动画"];
+    self.dataSource = @[@"排序性能比较",@"选择排序法动画",@"插入排序法动画",@"归并排序法动画",@"快速排序法动画"];
     
 }
 
@@ -49,6 +49,9 @@
     QMUICommonViewController *vc = [[QMUICommonViewController alloc] init];
     if (indexPath.row == 0) {
          vc = [[SortCompareViewController alloc] init];
+    }else if (indexPath.row == 1){
+        vc = [[SelectionSortViewController alloc] init];
+
     }
     vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = self.dataSource[indexPath.row];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C987111ED966FF911EAC974 /* libPods-Play-with-Algorithms-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */; };
+		AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */; };
 		AA98EF661F1461C500582960 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF651F1461C500582960 /* main.m */; };
 		AA98EF691F1461C500582960 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF681F1461C500582960 /* AppDelegate.m */; };
 		AA98EF6C1F1461C500582960 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF6B1F1461C500582960 /* ViewController.m */; };
@@ -34,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		084016CF5B4F8FFCC7910CE1 /* Pods-Play-with-Algorithms-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play-with-Algorithms-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		AA4AE22C1F15B2D70099A7F2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		AA4AE2361F1607D00099A7F2 /* CWSortNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSortNumberView.h; sourceTree = "<group>"; };
+		AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortNumberView.m; sourceTree = "<group>"; };
 		AA98EF611F1461C500582960 /* Play-with-Algorithms-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Algorithms-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF651F1461C500582960 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA98EF671F1461C500582960 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,16 +51,16 @@
 		AA98EF7A1F1461C600582960 /* Play-with-Algorithms-OCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Play-with-Algorithms-OCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF7E1F1461C600582960 /* Play_with_Algorithms_OCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Play_with_Algorithms_OCTests.m; sourceTree = "<group>"; };
 		AA98EF801F1461C600582960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA98EF8B1F1477B800582960 /* SelectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSort.h; sourceTree = "<group>"; };
-		AA98EF8C1F1477B800582960 /* SelectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSort.m; sourceTree = "<group>"; };
-		AA98EF8E1F14796500582960 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
-		AA98EF8F1F14796500582960 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
+		AA98EF8B1F1477B800582960 /* SelectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionSort.h; path = ../SelectionSort.h; sourceTree = "<group>"; };
+		AA98EF8C1F1477B800582960 /* SelectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionSort.m; path = ../SelectionSort.m; sourceTree = "<group>"; };
+		AA98EF8E1F14796500582960 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortViewController.h; path = ../SortViewController.h; sourceTree = "<group>"; };
+		AA98EF8F1F14796500582960 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortViewController.m; path = ../SortViewController.m; sourceTree = "<group>"; };
 		AA98EF921F147AAE00582960 /* SortTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortTestHelper.h; sourceTree = "<group>"; };
 		AA98EF931F147AAE00582960 /* SortTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortTestHelper.m; sourceTree = "<group>"; };
-		AA98EF951F14836300582960 /* SelectionSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionSortViewController.h; sourceTree = "<group>"; };
-		AA98EF961F14836300582960 /* SelectionSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionSortViewController.m; sourceTree = "<group>"; };
-		AA98EF981F149C6000582960 /* SortCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortCompareViewController.h; sourceTree = "<group>"; };
-		AA98EF991F149C6000582960 /* SortCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortCompareViewController.m; sourceTree = "<group>"; };
+		AA98EF951F14836300582960 /* SelectionSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionSortViewController.h; path = ../SelectionSortViewController.h; sourceTree = "<group>"; };
+		AA98EF961F14836300582960 /* SelectionSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionSortViewController.m; path = ../SelectionSortViewController.m; sourceTree = "<group>"; };
+		AA98EF981F149C6000582960 /* SortCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortCompareViewController.h; path = ../SortCompareViewController.h; sourceTree = "<group>"; };
+		AA98EF991F149C6000582960 /* SortCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortCompareViewController.m; path = ../SortCompareViewController.m; sourceTree = "<group>"; };
 		D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play-with-Algorithms-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play-with-Algorithms-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Play-with-Algorithms-OC/Pods-Play-with-Algorithms-OC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,37 @@
 				EEE08FB431566E78BD8C940F /* Pods-Play-with-Algorithms-OC.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA4AE2261F15B26D0099A7F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA98EF8E1F14796500582960 /* SortViewController.h */,
+				AA98EF8F1F14796500582960 /* SortViewController.m */,
+				AA98EF951F14836300582960 /* SelectionSortViewController.h */,
+				AA98EF961F14836300582960 /* SelectionSortViewController.m */,
+				AA98EF981F149C6000582960 /* SortCompareViewController.h */,
+				AA98EF991F149C6000582960 /* SortCompareViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AA4AE2271F15B26D0099A7F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA98EF8B1F1477B800582960 /* SelectionSort.h */,
+				AA98EF8C1F1477B800582960 /* SelectionSort.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA4AE2281F15B26D0099A7F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA4AE2361F1607D00099A7F2 /* CWSortNumberView.h */,
+				AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AA98EF581F1461C500582960 = {
@@ -138,6 +173,7 @@
 				AA98EF721F1461C500582960 /* LaunchScreen.storyboard */,
 				AA98EF751F1461C500582960 /* Info.plist */,
 				AA98EF651F1461C500582960 /* main.m */,
+				AA4AE22C1F15B2D70099A7F2 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,14 +199,9 @@
 		AA98EF8A1F14778700582960 /* Sort */ = {
 			isa = PBXGroup;
 			children = (
-				AA98EF8B1F1477B800582960 /* SelectionSort.h */,
-				AA98EF8C1F1477B800582960 /* SelectionSort.m */,
-				AA98EF8E1F14796500582960 /* SortViewController.h */,
-				AA98EF8F1F14796500582960 /* SortViewController.m */,
-				AA98EF951F14836300582960 /* SelectionSortViewController.h */,
-				AA98EF961F14836300582960 /* SelectionSortViewController.m */,
-				AA98EF981F149C6000582960 /* SortCompareViewController.h */,
-				AA98EF991F149C6000582960 /* SortCompareViewController.m */,
+				AA4AE2261F15B26D0099A7F2 /* Controller */,
+				AA4AE2271F15B26D0099A7F2 /* Model */,
+				AA4AE2281F15B26D0099A7F2 /* View */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -231,6 +262,7 @@
 		AA98EF591F1461C500582960 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CW;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CoderWoo;
 				TargetAttributes = {
@@ -347,6 +379,7 @@
 				AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */,
 				AA98EF691F1461C500582960 /* AppDelegate.m in Sources */,
 				AA98EF661F1461C500582960 /* main.m in Sources */,
+				AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +517,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7NHU5364QV;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Play-with-Algorithms-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "Play-with-Algorithms-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CoderWoo.Play-with-Algorithms-OC";
@@ -497,6 +532,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7NHU5364QV;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Play-with-Algorithms-OC/PrefixHeader.pch";
 				INFOPLIST_FILE = "Play-with-Algorithms-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CoderWoo.Play-with-Algorithms-OC";

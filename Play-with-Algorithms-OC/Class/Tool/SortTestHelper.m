@@ -61,43 +61,59 @@ static SortTestHelper *_instance;
  @param sortType 排序算法
  @param array 测试数组
  */
-- (void)testSort:(SortType )sortType array:(NSMutableArray *)array{
+- ( double )testSort:(SortType )sortType array:(NSMutableArray *)array{
     
-    __block NSMutableArray *arrayM = [NSMutableArray array];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *sortName = @"";
-        clock_t startTime = clock();
-        switch (sortType) {
-            case SortTypeSelection:
-            {
-                arrayM =  [self selectionSort:array];
-            }
-                break;
-            case SortTypeMerge:{
-                
-            }
-                break;
-            case SortTypeInsertion:{
-                
-            }
-                break;
-            default:
-                break;
+    NSMutableArray *arrayM = [NSMutableArray array];
+    NSString *sortName = @"";
+    CFTimeInterval startTime = CACurrentMediaTime();
+    
+    switch (sortType) {
+        case SortTypeSelection:
+        {
+            arrayM =  [self selectionSort:array];
         }
-        clock_t endTime = clock();
-        
-        NSAssert([self isSorted:arrayM],@"排序失败");
-        
-        NSLog(@"%@ :%lf s",sortName,(double)(endTime - startTime) / CLOCKS_PER_SEC );
+            break;
+        case SortTypeBubble:{
+            arrayM = [self bubbleSort:array];
+        }
+            break;
+        case SortTypeInsertion:{
+            arrayM = [self insertionSort:array];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    CFTimeInterval endTime = CACurrentMediaTime();
 
-    });
+    NSAssert([self isSorted:arrayM],@"排序失败");
+
+
+    CFTimeInterval consumingTime = endTime - startTime;
+    NSLog(@"%@ :耗时：%@ s",sortName, @(consumingTime));
+
+    return  consumingTime ;
+    
 }
 
 
 
+- (NSMutableArray *)bubbleSort:(NSMutableArray *)array{
+    
+    
+    return array;
+}
 
 
+/**
+ 选择排序
+
+ @param array array
+ @return array
+ */
 - (NSMutableArray *)selectionSort:(NSMutableArray *)array{
+   
     for(int i = 0 ; i < array.count ; i ++){
         int minIndex = i;
         for( int j = i + 1 ; j < array.count ; j ++ ){
@@ -107,9 +123,29 @@ static SortTestHelper *_instance;
         }
         [array exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
     }
+    
+
     return array;
 }
 
+/**
+ 插入排序
+
+ @param array array
+ @return array
+ */
+- (NSMutableArray *)insertionSort:(NSMutableArray *)array{
+    for (int i = 0; i < array.count; i++) {
+        int e = [array[i] intValue];
+        int j;
+        for (j = i; j > 0 && [array[j - 1] intValue] > e; j--) {
+            array[j] = array[j - 1];
+        }
+        array[j] = @(e);
+    }
+    
+    return array;
+}
 
 
 
