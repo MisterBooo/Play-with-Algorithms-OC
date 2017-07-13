@@ -1,18 +1,24 @@
 //
-//  CWBaseViewController.m
+//  CWSortAnimationViewController.m
 //  Play-with-Algorithms-OC
 //
 //  Created by wuzhibo on 2017/7/13.
 //  Copyright © 2017年 CoderWoo. All rights reserved.
 //
 
-#import "CWBaseViewController.h"
+#import "CWSortAnimationViewController.h"
 
-@interface CWBaseViewController ()
+@interface CWSortAnimationViewController ()
 
 @end
 
-@implementation CWBaseViewController
+@implementation CWSortAnimationViewController
+
+- (instancetype)initWithType:(SortType)sortType{
+    self = [super init];
+    self.sortType = sortType;
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -108,7 +114,7 @@
         
         [self.models addObject:model];
     }
-    [self setupStateMachine];
+    self.stateArray =  [[SortTestHelper shareInstance] statesWithModels:self.models type:self.sortType];
     
 }
 - (void)setupStateMachine{
@@ -140,8 +146,6 @@
     }
     return _models;
 }
-
-
 
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "SortViewController.h"
-#import "SelectionSortViewController.h"
 #import "SortCompareViewController.h"
+#import "CWSortAnimationViewController.h"
 @interface SortViewController ()
 @property(nonatomic, strong) NSArray *dataSource;
 
@@ -50,7 +50,7 @@
     if (indexPath.row == 0) {
          vc = [[SortCompareViewController alloc] init];
     }else if (indexPath.row == 1){
-        vc = [[SelectionSortViewController alloc] init];
+        vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeSelection];
 
     }
     vc.view.backgroundColor = [UIColor whiteColor];

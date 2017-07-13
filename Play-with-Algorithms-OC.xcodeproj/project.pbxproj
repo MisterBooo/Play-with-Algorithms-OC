@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		8C987111ED966FF911EAC974 /* libPods-Play-with-Algorithms-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */; };
 		AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */; };
-		AA4AE23B1F16F9110099A7F2 /* CWAllSort.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE23A1F16F9110099A7F2 /* CWAllSort.m */; };
-		AA4AE23E1F170F100099A7F2 /* CWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE23D1F170F100099A7F2 /* CWBaseViewController.m */; };
-		AA4AE2411F170F380099A7F2 /* CWBubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2401F170F380099A7F2 /* CWBubbleViewController.m */; };
 		AA4AE2451F173E400099A7F2 /* CWSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2441F173E400099A7F2 /* CWSortModel.m */; };
+		AA4AE24E1F174BA90099A7F2 /* CWSortAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */; };
 		AA98EF661F1461C500582960 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF651F1461C500582960 /* main.m */; };
 		AA98EF691F1461C500582960 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF681F1461C500582960 /* AppDelegate.m */; };
 		AA98EF6C1F1461C500582960 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF6B1F1461C500582960 /* ViewController.m */; };
@@ -23,7 +21,6 @@
 		AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF8C1F1477B800582960 /* SelectionSort.m */; };
 		AA98EF901F14796500582960 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF8F1F14796500582960 /* SortViewController.m */; };
 		AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF931F147AAE00582960 /* SortTestHelper.m */; };
-		AA98EF971F14836300582960 /* SelectionSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF961F14836300582960 /* SelectionSortViewController.m */; };
 		AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF991F149C6000582960 /* SortCompareViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -42,14 +39,10 @@
 		AA4AE22C1F15B2D70099A7F2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AA4AE2361F1607D00099A7F2 /* CWSortNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSortNumberView.h; sourceTree = "<group>"; };
 		AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortNumberView.m; sourceTree = "<group>"; };
-		AA4AE2391F16F9110099A7F2 /* CWAllSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAllSort.h; sourceTree = "<group>"; };
-		AA4AE23A1F16F9110099A7F2 /* CWAllSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAllSort.m; sourceTree = "<group>"; };
-		AA4AE23C1F170F100099A7F2 /* CWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWBaseViewController.h; path = Controller/CWBaseViewController.h; sourceTree = "<group>"; };
-		AA4AE23D1F170F100099A7F2 /* CWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWBaseViewController.m; path = Controller/CWBaseViewController.m; sourceTree = "<group>"; };
-		AA4AE23F1F170F380099A7F2 /* CWBubbleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBubbleViewController.h; sourceTree = "<group>"; };
-		AA4AE2401F170F380099A7F2 /* CWBubbleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBubbleViewController.m; sourceTree = "<group>"; };
 		AA4AE2431F173E400099A7F2 /* CWSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSortModel.h; sourceTree = "<group>"; };
 		AA4AE2441F173E400099A7F2 /* CWSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortModel.m; sourceTree = "<group>"; };
+		AA4AE24C1F174BA90099A7F2 /* CWSortAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSortAnimationViewController.h; sourceTree = "<group>"; };
+		AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortAnimationViewController.m; sourceTree = "<group>"; };
 		AA98EF611F1461C500582960 /* Play-with-Algorithms-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Algorithms-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF651F1461C500582960 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA98EF671F1461C500582960 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,8 +62,6 @@
 		AA98EF8F1F14796500582960 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortViewController.m; path = ../SortViewController.m; sourceTree = "<group>"; };
 		AA98EF921F147AAE00582960 /* SortTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortTestHelper.h; sourceTree = "<group>"; };
 		AA98EF931F147AAE00582960 /* SortTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortTestHelper.m; sourceTree = "<group>"; };
-		AA98EF951F14836300582960 /* SelectionSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionSortViewController.h; path = ../SelectionSortViewController.h; sourceTree = "<group>"; };
-		AA98EF961F14836300582960 /* SelectionSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionSortViewController.m; path = ../SelectionSortViewController.m; sourceTree = "<group>"; };
 		AA98EF981F149C6000582960 /* SortCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortCompareViewController.h; path = ../SortCompareViewController.h; sourceTree = "<group>"; };
 		AA98EF991F149C6000582960 /* SortCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortCompareViewController.m; path = ../SortCompareViewController.m; sourceTree = "<group>"; };
 		D4252690B44A4E87FF1C8D91 /* libPods-Play-with-Algorithms-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play-with-Algorithms-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,12 +109,10 @@
 			children = (
 				AA98EF8E1F14796500582960 /* SortViewController.h */,
 				AA98EF8F1F14796500582960 /* SortViewController.m */,
-				AA98EF951F14836300582960 /* SelectionSortViewController.h */,
-				AA98EF961F14836300582960 /* SelectionSortViewController.m */,
 				AA98EF981F149C6000582960 /* SortCompareViewController.h */,
 				AA98EF991F149C6000582960 /* SortCompareViewController.m */,
-				AA4AE23F1F170F380099A7F2 /* CWBubbleViewController.h */,
-				AA4AE2401F170F380099A7F2 /* CWBubbleViewController.m */,
+				AA4AE24C1F174BA90099A7F2 /* CWSortAnimationViewController.h */,
+				AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,8 +204,6 @@
 		AA98EF8A1F14778700582960 /* Sort */ = {
 			isa = PBXGroup;
 			children = (
-				AA4AE23C1F170F100099A7F2 /* CWBaseViewController.h */,
-				AA4AE23D1F170F100099A7F2 /* CWBaseViewController.m */,
 				AA4AE2261F15B26D0099A7F2 /* Controller */,
 				AA4AE2271F15B26D0099A7F2 /* Model */,
 				AA4AE2281F15B26D0099A7F2 /* View */,
@@ -229,8 +216,6 @@
 			children = (
 				AA98EF921F147AAE00582960 /* SortTestHelper.h */,
 				AA98EF931F147AAE00582960 /* SortTestHelper.m */,
-				AA4AE2391F16F9110099A7F2 /* CWAllSort.h */,
-				AA4AE23A1F16F9110099A7F2 /* CWAllSort.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -393,17 +378,14 @@
 			files = (
 				AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */,
 				AA98EF6C1F1461C500582960 /* ViewController.m in Sources */,
-				AA98EF971F14836300582960 /* SelectionSortViewController.m in Sources */,
 				AA98EF901F14796500582960 /* SortViewController.m in Sources */,
 				AA4AE2451F173E400099A7F2 /* CWSortModel.m in Sources */,
-				AA4AE2411F170F380099A7F2 /* CWBubbleViewController.m in Sources */,
 				AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */,
-				AA4AE23E1F170F100099A7F2 /* CWBaseViewController.m in Sources */,
 				AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */,
 				AA98EF691F1461C500582960 /* AppDelegate.m in Sources */,
+				AA4AE24E1F174BA90099A7F2 /* CWSortAnimationViewController.m in Sources */,
 				AA98EF661F1461C500582960 /* main.m in Sources */,
 				AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */,
-				AA4AE23B1F16F9110099A7F2 /* CWAllSort.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

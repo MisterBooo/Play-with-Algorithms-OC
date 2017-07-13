@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CWSortModel.h"
 typedef NS_ENUM(NSInteger,SortType){
     SortTypeSelection,
     SortTypeBubble,
@@ -50,5 +51,11 @@ typedef NS_ENUM(NSInteger,SortType){
 - (double)testSort:(SortType )sortType array:(NSMutableArray *)array;
 
 
+/**
+ 根据数据获取排序时的各个状态
 
+ @param models models
+ @return 状态机
+ */
+- (NSMutableArray *)statesWithModels:(NSMutableArray *)models type:(SortType )type;
 @end

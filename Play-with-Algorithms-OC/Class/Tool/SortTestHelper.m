@@ -146,7 +146,65 @@ static SortTestHelper *_instance;
     
     return array;
 }
+- (NSMutableArray *)statesWithModels:(NSMutableArray *)models type:(SortType)type{
+    NSMutableArray *states = [NSMutableArray array];
+    switch (type) {
+        case SortTypeSelection:
+            {
+                for(int i = 0 ; i < models.count ; i ++){
+                    int minIndex = i;
+                    for( int j = i + 1 ; j < models.count ; j ++ ){
+                        //添加一个存储状态的数组
+                        //状态机
+                        NSMutableArray *array = [NSMutableArray array];
+                        for (int k = 0; k < models.count; k++) {
+                            CWSortModel *model_k = [[CWSortModel alloc] init];
+                            CWSortModel *model = models[k];
+                            if (k == j) {
+                                model_k.backgroundColor = UIColorGreen;
+                            }else if (k == minIndex){
+                                model_k.backgroundColor = UIColorRed;
+                            }else{
+                                model_k.backgroundColor = UIColorBlue;
+                            }
+                            if (k < i) {
+                                model_k.backgroundColor = UIColorYellow;
+                            }
+                            model_k.numberText = model.numberText;
+                            [array addObject:model_k];
+                        }
+                        
+                        CWSortModel *model_j = models[j];
+                        CWSortModel *model_minIndex = models[minIndex];
+                        
+                        if( model_j.numberText.intValue < model_minIndex.numberText.intValue ){
+                            minIndex = j;
+                        }
+                        [states addObject:array];
+                        
+                    }
+                    [models exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
+                }
 
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    //打印出所有状态
+    for (int i = 0; i< states.count; i++) {
+        NSMutableArray *array = states[i];
+        for (int j = 0; j < array.count; j++) {
+            CWSortModel *model = array[j];
+            NSLog(@"%@",model.numberText);
+        }
+        NSLog(@"***********");
+    }
+
+    return states;
+}
 
 
 @end

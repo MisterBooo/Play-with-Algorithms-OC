@@ -1,5 +1,5 @@
 //
-//  CWBaseViewController.h
+//  CWSortAnimationViewController.h
 //  Play-with-Algorithms-OC
 //
 //  Created by wuzhibo on 2017/7/13.
@@ -11,7 +11,8 @@
 #import "SelectionSort.h"
 #import "CWSortNumberView.h"
 #import "CWSortModel.h"
-@interface CWBaseViewController : QMUICommonViewController
+
+@interface CWSortAnimationViewController : QMUICommonViewController
 @property(nonatomic, strong) NSMutableArray *dataSource;
 @property(nonatomic, strong) NSMutableArray *models;
 
@@ -20,7 +21,9 @@
 
 @property(nonatomic, assign) int index;
 @property(nonatomic, strong) NSMutableArray *stateArray;
+@property(nonatomic, assign) SortType sortType;
+
+- (instancetype)initWithType:(SortType )sortType;
 
 - (void)setupStateMachine;
-
 @end
