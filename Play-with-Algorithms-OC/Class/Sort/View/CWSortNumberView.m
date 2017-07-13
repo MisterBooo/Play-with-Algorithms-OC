@@ -23,8 +23,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self.contentLabel sizeToFit];
+    self.contentLabel.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.contentLabel.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
+    
+
 }
 
 @end

@@ -13,9 +13,15 @@
 @interface SelectionSortViewController ()
 
 @property(nonatomic, strong) NSMutableArray *dataSource;
+@property(nonatomic, strong) NSMutableArray *numbers;
+
+
 
 @property(nonatomic, strong) NSTimer *timer;
 @property(nonatomic, assign) BOOL isOrder;
+
+@property(nonatomic, assign) int delay;
+@property(nonatomic, strong) NSMutableArray *sortArray;
 @end
 
 @implementation SelectionSortViewController
@@ -23,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.delay = 0;
     [self reloadData];
     
 }
@@ -52,51 +58,35 @@
 
 - (void)sortAnimation{
 
-    NSLog(@"执行动画");
-    NSTimeInterval delay = 1;
-    for (int i = 0; i < self.dataSource.count; i++) {
-        __block int minIndex = i;
-        for( int j = i + 1 ; j < self.dataSource.count ; j ++ ){
-            delay += 1;
-            NSLog(@"delay:%f",delay);
-            [UIView animateWithDuration:1 delay: delay options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                for (CWSortNumberView *numberView in self.view.subviews) {
-                    numberView.backgroundColor = UIColorBlue;
-                }
-                CWSortNumberView *number_minIndex = self.dataSource[minIndex];
-                CWSortNumberView *number_j = self.dataSource[j];
-                number_minIndex.backgroundColor = UIColorGreen;
-                number_j.backgroundColor = UIColorGreen;
-            } completion:nil];
-            
-        }
-    }
-    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sortAction:) userInfo:nil repeats:YES];
+    [timer fire];
+    _timer = timer;
 
-    
 }
-- (void)sortAction{
-    NSLog(@"执行动画");
-    for (int i = 0; i < self.dataSource.count; i++) {
-        __block int minIndex = i;
-        for( int j = i + 1 ; j < self.dataSource.count ; j ++ ){
-            for (CWSortNumberView *numberView in self.view.subviews) {
-                numberView.backgroundColor = UIColorBlue;
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                CWSortNumberView *number_minIndex = self.dataSource[minIndex];
-                CWSortNumberView *number_j = self.dataSource[j];
-                number_minIndex.backgroundColor = UIColorGreen;
-                number_j.backgroundColor = UIColorGreen;
-                if ([number_j.contentLabel.text intValue] < [number_minIndex.contentLabel.text intValue]) {
-                    minIndex = j;
-                    
-                }
-            });
-            
+- (void)sortAction:(NSTimer *)timer{
+    if (self.delay > self.sortArray.count-1) {
+        [_timer invalidate];
+        _timer = nil;
+        for (CWSortNumberView *numberView in self.view.subviews) {
+            numberView.backgroundColor = UIColorYellow;
         }
+        [QMUITips showSucceed:@"排序成功" inView:self.view hideAfterDelay:2];
+        return;
     }
+
+    [UIView animateWithDuration:0.8 delay: 0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        NSArray *states = self.sortArray[self.delay];
+        for (int i = 0; i < states.count; i++) {
+            CWSortNumberView *numberView_i = states[i];
+            CWSortNumberView *numberView = self.dataSource[i];
+            numberView.contentLabel.text = numberView_i.contentLabel.text;
+            numberView.backgroundColor = numberView_i.backgroundColor;
+        }
+       
+    } completion:^(BOOL finished){
+        self.delay += 1;
+    }];
+   
 }
 
 
@@ -111,6 +101,9 @@
         [numberView removeFromSuperview];
     }
     [self.dataSource removeAllObjects];
+    [self.sortArray removeAllObjects];
+    [self.numbers removeAllObjects];
+    self.delay = 0;
     [_timer invalidate];
     _timer = nil;
     
@@ -122,7 +115,53 @@
         numberView.backgroundColor = UIColorBlue;
         [self.view addSubview:numberView];
         [self.dataSource addObject:numberView];
+        [self.numbers addObject:numberView.contentLabel.text];
+        
     }
+    for(int i = 0 ; i < self.numbers.count ; i ++){
+        int minIndex = i;
+        for( int j = i + 1 ; j < self.numbers.count ; j ++ ){
+         
+            //添加一个存储状态的数组
+            //状态机
+            NSMutableArray *array = [NSMutableArray array];
+            for (int k = 0; k < self.numbers.count; k++) {
+                CWSortNumberView *numberView_k = [[CWSortNumberView alloc] init];
+                numberView_k.contentLabel.text = self.numbers[k];
+                if (k == j) {
+                    numberView_k.backgroundColor = UIColorGreen;
+                }else if (k == minIndex){
+                    numberView_k.backgroundColor = UIColorRed;
+                }else{
+                   numberView_k.backgroundColor = UIColorBlue;
+                }
+                if (k < i) {
+                    numberView_k.backgroundColor = UIColorYellow;
+                }
+                [array addObject:numberView_k];
+            }
+            int number_j = [self.numbers[j] intValue];
+            int number_minIndex = [self.numbers[minIndex] intValue];
+            
+            if( number_j < number_minIndex ){
+                minIndex = j;
+            }
+            [self.sortArray addObject:array];
+            
+        }
+        [self.numbers exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
+    }
+    
+    //打印出所有状态
+    for (int i = 0; i< self.sortArray.count; i++) {
+        NSMutableArray *array = self.sortArray[i];
+        for (int j = 0; j < array.count; j++) {
+            CWSortNumberView *numberView = array[j];
+            NSLog(@"%@",numberView.contentLabel.text);
+        }
+        NSLog(@"***********");
+    }
+    
 }
 
 
@@ -132,11 +171,25 @@
     }
     return _dataSource;
 }
-- (void)dealloc{
+- (BOOL)canPopViewController{
     [_timer invalidate];
     _timer = nil;
+    return YES;
 }
 
+- (NSMutableArray *)sortArray{
+    if (!_sortArray) {
+        _sortArray = [NSMutableArray array];
+    }
+    return _sortArray;
+}
+
+- (NSMutableArray *)numbers{
+    if (!_numbers) {
+        _numbers = [NSMutableArray array];
+    }
+    return _numbers;
+}
 
 
 @end
