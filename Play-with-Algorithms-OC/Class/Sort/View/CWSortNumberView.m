@@ -20,6 +20,11 @@
     }
     return self;
 }
+- (void)setModel:(CWSortModel *)model{
+    _model = model;
+    self.backgroundColor = model.backgroundColor;
+    self.contentLabel.text = model.numberText;
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];

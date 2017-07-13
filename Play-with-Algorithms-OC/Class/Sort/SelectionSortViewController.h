@@ -6,8 +6,8 @@
 //  Copyright © 2017年 CoderWoo. All rights reserved.
 //
 
-#import <QMUIKit/QMUIKit.h>
+#import "CWBaseViewController.h"
 
-@interface SelectionSortViewController : QMUICommonViewController
+@interface SelectionSortViewController : CWBaseViewController
 
 @end

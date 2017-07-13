@@ -7,7 +7,20 @@
 //
 
 #import <QMUIKit/QMUIKit.h>
-
+#import "SortTestHelper.h"
+#import "SelectionSort.h"
+#import "CWSortNumberView.h"
+#import "CWSortModel.h"
 @interface CWBaseViewController : QMUICommonViewController
+@property(nonatomic, strong) NSMutableArray *dataSource;
+@property(nonatomic, strong) NSMutableArray *models;
+
+@property(nonatomic, strong) NSTimer *timer;
+@property(nonatomic, assign) BOOL isOrder;
+
+@property(nonatomic, assign) int index;
+@property(nonatomic, strong) NSMutableArray *stateArray;
+
+- (void)setupStateMachine;
 
 @end
