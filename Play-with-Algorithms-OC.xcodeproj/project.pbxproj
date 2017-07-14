@@ -11,6 +11,8 @@
 		AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2371F1607D00099A7F2 /* CWSortNumberView.m */; };
 		AA4AE2451F173E400099A7F2 /* CWSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2441F173E400099A7F2 /* CWSortModel.m */; };
 		AA4AE24E1F174BA90099A7F2 /* CWSortAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */; };
+		AA4AE2531F18A2C80099A7F2 /* CWMazeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2521F18A2C80099A7F2 /* CWMazeSearchViewController.m */; };
+		AA4AE2561F18A2F70099A7F2 /* CWGraphBasicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2551F18A2F70099A7F2 /* CWGraphBasicsViewController.m */; };
 		AA98EF661F1461C500582960 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF651F1461C500582960 /* main.m */; };
 		AA98EF691F1461C500582960 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF681F1461C500582960 /* AppDelegate.m */; };
 		AA98EF6C1F1461C500582960 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF6B1F1461C500582960 /* ViewController.m */; };
@@ -43,6 +45,10 @@
 		AA4AE2441F173E400099A7F2 /* CWSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortModel.m; sourceTree = "<group>"; };
 		AA4AE24C1F174BA90099A7F2 /* CWSortAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSortAnimationViewController.h; sourceTree = "<group>"; };
 		AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSortAnimationViewController.m; sourceTree = "<group>"; };
+		AA4AE2511F18A2C80099A7F2 /* CWMazeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMazeSearchViewController.h; sourceTree = "<group>"; };
+		AA4AE2521F18A2C80099A7F2 /* CWMazeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMazeSearchViewController.m; sourceTree = "<group>"; };
+		AA4AE2541F18A2F70099A7F2 /* CWGraphBasicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGraphBasicsViewController.h; sourceTree = "<group>"; };
+		AA4AE2551F18A2F70099A7F2 /* CWGraphBasicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWGraphBasicsViewController.m; sourceTree = "<group>"; };
 		AA98EF611F1461C500582960 /* Play-with-Algorithms-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Algorithms-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF651F1461C500582960 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA98EF671F1461C500582960 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +143,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AA4AE24F1F18A28E0099A7F2 /* Graph-Basics */ = {
+			isa = PBXGroup;
+			children = (
+				AA4AE2541F18A2F70099A7F2 /* CWGraphBasicsViewController.h */,
+				AA4AE2551F18A2F70099A7F2 /* CWGraphBasicsViewController.m */,
+				AA4AE2501F18A28E0099A7F2 /* MazeSearch */,
+			);
+			path = "Graph-Basics";
+			sourceTree = "<group>";
+		};
+		AA4AE2501F18A28E0099A7F2 /* MazeSearch */ = {
+			isa = PBXGroup;
+			children = (
+				AA4AE2511F18A2C80099A7F2 /* CWMazeSearchViewController.h */,
+				AA4AE2521F18A2C80099A7F2 /* CWMazeSearchViewController.m */,
+			);
+			path = MazeSearch;
+			sourceTree = "<group>";
+		};
 		AA98EF581F1461C500582960 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +220,7 @@
 		AA98EF891F14778700582960 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				AA4AE24F1F18A28E0099A7F2 /* Graph-Basics */,
 				AA98EF911F147A7400582960 /* Tool */,
 				AA98EF8A1F14778700582960 /* Sort */,
 			);
@@ -379,6 +405,8 @@
 				AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */,
 				AA98EF6C1F1461C500582960 /* ViewController.m in Sources */,
 				AA98EF901F14796500582960 /* SortViewController.m in Sources */,
+				AA4AE2531F18A2C80099A7F2 /* CWMazeSearchViewController.m in Sources */,
+				AA4AE2561F18A2F70099A7F2 /* CWGraphBasicsViewController.m in Sources */,
 				AA4AE2451F173E400099A7F2 /* CWSortModel.m in Sources */,
 				AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */,
 				AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */,

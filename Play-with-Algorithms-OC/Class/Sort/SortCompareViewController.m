@@ -12,6 +12,8 @@
 @property(nonatomic, strong) QMUIFillButton *button;
 @property(nonatomic, assign) int number;
 @property(nonatomic, strong) QMUITextField *textField;
+
+
 @end
 
 @implementation SortCompareViewController
@@ -69,9 +71,10 @@
     
    NSMutableArray *array = [[SortTestHelper shareInstance] generateRandomArrayNumber:self.number rangeL:0 rangeR:self.number];
    
-  [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array];
-  [[SortTestHelper shareInstance] testSort:SortTypeBubble array:array];
-  [[SortTestHelper shareInstance] testSort:SortTypeInsertion array:array];
+  [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array.mutableCopy];
+  [[SortTestHelper shareInstance] testSort:SortTypeBubble array:array.mutableCopy];
+  [[SortTestHelper shareInstance] testSort:SortTypeInsertion array:array.mutableCopy];
+
    
  
   

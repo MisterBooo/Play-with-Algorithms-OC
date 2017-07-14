@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SortViewController.h"
+#import "CWGraphBasicsViewController.h"
 @interface ViewController ()
 @property(nonatomic, strong) NSArray *dataSource;
 @end
@@ -45,11 +46,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QMUICommonViewController *vc = [[QMUICommonViewController alloc] init];
-    vc.view.backgroundColor = [UIColor whiteColor];
     if (indexPath.row == 0) {
         vc = [[SortViewController alloc] init];
+    }else if(indexPath.row == 5){
+        vc = [[CWGraphBasicsViewController alloc] init];
     }
     vc.title = self.dataSource[indexPath.row];
+    vc.view.backgroundColor = [UIColor whiteColor];
+
     [self.navigationController pushViewController:vc animated:YES];
 
 }

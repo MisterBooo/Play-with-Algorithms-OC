@@ -61,40 +61,33 @@ static SortTestHelper *_instance;
  @param sortType 排序算法
  @param array 测试数组
  */
-- ( double )testSort:(SortType )sortType array:(NSMutableArray *)array{
-    
-    NSMutableArray *arrayM = [NSMutableArray array];
-    NSString *sortName = @"";
-    CFTimeInterval startTime = CACurrentMediaTime();
-    
-    switch (sortType) {
-        case SortTypeSelection:
-        {
-            arrayM =  [self selectionSort:array];
+- (void)testSort:(SortType )sortType array:(NSMutableArray *)array{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSMutableArray *arrayM = [NSMutableArray array];
+        CFTimeInterval startTime = CACurrentMediaTime();
+        switch (sortType) {
+            case SortTypeSelection:
+            {
+                arrayM =  [self selectionSort:array];
+            }
+                break;
+            case SortTypeBubble:{
+                arrayM = [self bubbleSort:array];
+            }
+                break;
+            case SortTypeInsertion:{
+                arrayM = [self insertionSort:array];
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-        case SortTypeBubble:{
-            arrayM = [self bubbleSort:array];
-        }
-            break;
-        case SortTypeInsertion:{
-            arrayM = [self insertionSort:array];
-        }
-            break;
-        default:
-            break;
-    }
-    
-    CFTimeInterval endTime = CACurrentMediaTime();
-
-    NSAssert([self isSorted:arrayM],@"排序失败");
-
-
-    CFTimeInterval consumingTime = endTime - startTime;
-    NSLog(@"%@ :耗时：%@ s",sortName, @(consumingTime));
-
-    return  consumingTime ;
-    
+        CFTimeInterval endTime = CACurrentMediaTime();
+        NSAssert([self isSorted:arrayM],@"排序失败");
+        CFTimeInterval consumingTime = endTime - startTime;
+        NSLog(@"%ld :耗时：%@ s",sortType, @(consumingTime));
+    });
 }
 
 /**
@@ -122,11 +115,14 @@ static SortTestHelper *_instance;
             states = [self bubbleSortFromModels:models];
         }
             break;
+        case SortTypeSheel:{
+            states = [self shellSortFromModels:models];
+        }
+            break;
             
         default:
             break;
     }
-    
     //打印出所有状态
     for (int i = 0; i< states.count; i++) {
         NSMutableArray *array = states[i];
@@ -143,10 +139,34 @@ static SortTestHelper *_instance;
 
 
 
-- (NSMutableArray *)bubbleSort:(NSMutableArray *)array{
+- (NSMutableArray *)bubbleSort:(NSMutableArray *)arr{
+    bool swapped;
+    //int newn; // 理论上,可以使用newn进行优化,但实际优化效果较差
+    NSInteger n = arr.count;
+    do{
+        swapped = false;
+        //newn = 0;
+        for( int i = 1 ; i < n ; i ++ )
+            if( arr[i-1] > arr[i] ){
+                [arr exchangeObjectAtIndex:i - 1 withObjectAtIndex:i];
+                swapped = true;
+                
+                // 可以记录最后一次的交换位置,在此之后的元素在下一轮扫描中均不考虑
+                // 实际优化效果较差,因为引入了newn这个新的变量
+                //newn = n;
+            }
+        
+        //n = newn;
+        
+        // 优化,每一趟Bubble Sort都将最大的元素放在了最后的位置
+        // 所以下一次排序,最后的元素可以不再考虑
+        // 理论上,newn的优化是这个优化的复杂版本,应该更有效
+        // 实测,使用这种简单优化,时间性能更好
+        n --;
+        
+    }while(swapped);
     
-    
-    return array;
+    return arr;
 }
 
 
@@ -251,7 +271,84 @@ static SortTestHelper *_instance;
     
     return insertionArray;
 }
+- (NSMutableArray *)shellSortFromModels:(NSMutableArray *)models{
+    NSMutableArray *sheelArray = [NSMutableArray array];
+//    
+//    
+//    
+//    NSInteger gap,i;
+//    for ( gap = models.count/2; gap > 0; gap /=2) {
+//        for ( i = gap; i < models.count; i++) {
+//            CWSortModel *model_i = models[i];
+//            CWSortModel *model_i_gap = models[i-gap];
+//            if (model_i.numberText.integerValue < model_i_gap.numberText.integerValue ) {
+//                NSInteger target = model_i.numberText.integerValue;
+//                NSInteger j = i - gap;
+//                while (j >= 0 ) {
+//                    CWSortModel *model_j = models[j];
+//                    if (model_j.numberText.integerValue > target) {
+//                        models[j+gap] = model_j;
+//                        j -= gap;
+////                        [sheelArray addObject:[self setStateMachine:models indexI:i indexJ:j]];
+//                        for (int k = 0; k < models.count; k++) {
+//                            CWSortModel *model = models[k];
+//                            NSLog(@"%@",model.numberText);
+//                        }
+//                        NSLog(@"******");
+//
+//                    }
+//                }
+//                CWSortModel *model_gap = [[CWSortModel alloc] init];
+//                model_gap.numberText = [NSString stringWithFormat:@"%ld",target];
+//                models[j+gap] = model_gap;
+//            }
+//            
+//        }
+//        
+//    }
+    
 
+    // 计算 increment sequence: 1, 4, 13, 40, 121, 364, 1093...
+    int h = 1;
+    while( h < models.count / 3 )
+        h = 3 * h + 1;
+    
+    while( h >= 1 ){
+        
+        // h-sort the array
+        for( int i = h ; i < models.count ; i ++ ){
+            
+            // 对 arr[i], arr[i-h], arr[i-2*h], arr[i-3*h]... 使用插入排序
+            CWSortModel *model_e = models[i];
+            int j;
+            for( j = i ; j >= h  ; j -= h ){
+                CWSortModel *model_j_h = models[j-h];
+                CWSortModel *model_j = models[j];
+               
+                if (model_e.numberText.intValue > model_j_h.numberText.intValue ) {
+                    [sheelArray addObject:[self setStateMachine:models indexI:j indexJ:j-h] ];
+                    break;
+                }else{
+                    model_j.numberText = model_j_h.numberText;
+                    [sheelArray addObject:[self setStateMachine:models indexI:j indexJ:j-h] ];
+
+                }
+
+            }
+            CWSortModel *model_j = models[j];
+            model_j.numberText = model_e.numberText;
+        }
+        h /= 3;
+    }
+    return sheelArray;
+}
+
+/**
+ 冒泡排序
+
+ @param models 数据
+ @return 排序数组
+ */
 - (NSMutableArray *)bubbleSortFromModels:(NSMutableArray *)models{
     NSMutableArray *bubbleArray = [NSMutableArray array];
     bool swapped;
@@ -264,7 +361,7 @@ static SortTestHelper *_instance;
                 swapped = true;
                 [models exchangeObjectAtIndex:i withObjectAtIndex:i - 1];
             }
-           [bubbleArray addObject: [self setStateMachine:models indexI:i indexJ:i - 1]];
+           [bubbleArray addObject: [self setStateMachine:models indexI:i-1 indexJ:i ]];
         }
         [models removeLastObject];
     } while (swapped);
@@ -277,10 +374,11 @@ static SortTestHelper *_instance;
 - (NSMutableArray *)setStateMachine:(NSMutableArray *)models indexI:(int)i indexJ:(int)j {
     //添加一个存储状态的数组
     //状态机
+    NSArray *modelsCopy = models.copy;
     NSMutableArray *array = [NSMutableArray array];
-    for (int k = 0; k < models.count; k++) {
+    for (int k = 0; k < modelsCopy.count; k++) {
         CWSortModel *model_k = [[CWSortModel alloc] init];
-        CWSortModel *model = models[k];
+        CWSortModel *model = modelsCopy[k];
         model_k.backgroundColor = UIColorYellow;
         if (k < i) {
             model_k.backgroundColor = UIColorBlue;

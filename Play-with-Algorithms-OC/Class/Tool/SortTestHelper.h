@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger,SortType){
  @param sortType 排序算法
  @param array 测试数组
  */
-- (double)testSort:(SortType )sortType array:(NSMutableArray *)array;
+- (void)testSort:(SortType )sortType array:(NSMutableArray *)array;
 
 
 

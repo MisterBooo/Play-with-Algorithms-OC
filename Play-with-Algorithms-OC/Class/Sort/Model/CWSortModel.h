@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface CWSortModel : NSObject
-@property(nonatomic, strong) NSString *numberText;
+@property(nonatomic, copy) NSString *numberText;
 @property(nonatomic, strong) UIColor *backgroundColor;
 @end
