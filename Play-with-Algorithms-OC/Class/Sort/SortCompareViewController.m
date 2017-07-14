@@ -71,9 +71,10 @@
     
    NSMutableArray *array = [[SortTestHelper shareInstance] generateRandomArrayNumber:self.number rangeL:0 rangeR:self.number];
    
-  [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array.mutableCopy];
-  [[SortTestHelper shareInstance] testSort:SortTypeBubble array:array.mutableCopy];
-  [[SortTestHelper shareInstance] testSort:SortTypeInsertion array:array.mutableCopy];
+   [[SortTestHelper shareInstance] testSort:SortTypeSelection array:array.mutableCopy];
+   [[SortTestHelper shareInstance] testSort:SortTypeBubble array:array.mutableCopy];
+   [[SortTestHelper shareInstance] testSort:SortTypeInsertion array:array.mutableCopy];
+   [[SortTestHelper shareInstance] testSort:SortTypeMerge array:array.mutableCopy];
 
    
  
