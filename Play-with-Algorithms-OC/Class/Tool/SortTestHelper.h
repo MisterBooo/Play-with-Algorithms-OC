@@ -51,10 +51,12 @@ typedef NS_ENUM(NSInteger,SortType){
 - (double)testSort:(SortType )sortType array:(NSMutableArray *)array;
 
 
+
 /**
  根据数据获取排序时的各个状态
 
  @param models models
+ @param type 排序类型
  @return 状态机
  */
 - (NSMutableArray *)statesWithModels:(NSMutableArray *)models type:(SortType )type;

@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.dataSource = @[@"排序性能比较",@"选择排序法动画",@"插入排序法动画",@"归并排序法动画",@"快速排序法动画"];
+    self.dataSource = @[@"排序性能比较",@"选择排序法动画",@"插入排序法动画",@"希尔排序法动画",@"冒泡排序法动画",@"归并排序法动画",@"快速排序法动画"];
     
 }
 
@@ -51,7 +51,8 @@
          vc = [[SortCompareViewController alloc] init];
     }else if (indexPath.row == 1){
         vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeSelection];
-
+    }else if (indexPath.row == 2){
+        vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeInsertion];
     }
     vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = self.dataSource[indexPath.row];

@@ -49,7 +49,7 @@
 
 
 - (void)sortAnimation{
-    
+    [QMUITips showSucceed:[NSString stringWithFormat:@"本次排序总共进行了 %ld 次计算",self.stateArray.count] inView:self.view hideAfterDelay:1];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sortAction:) userInfo:nil repeats:YES];
     [timer fire];
     _timer = timer;
@@ -60,7 +60,7 @@
         [_timer invalidate];
         _timer = nil;
         for (CWSortNumberView *numberView in self.view.subviews) {
-            numberView.backgroundColor = UIColorYellow;
+            numberView.backgroundColor = UIColorBlue;
         }
         [QMUITips showSucceed:@"排序成功" inView:self.view hideAfterDelay:2];
         return;
@@ -105,7 +105,7 @@
         
         CWSortModel *model = [[CWSortModel alloc] init];
         model.numberText = [NSString stringWithFormat:@"%d",number];
-        model.backgroundColor = UIColorBlue;
+        model.backgroundColor = UIColorYellow;
         
         numberView.model = model;
         
@@ -115,6 +115,9 @@
         [self.models addObject:model];
     }
     self.stateArray =  [[SortTestHelper shareInstance] statesWithModels:self.models type:self.sortType];
+    
+ 
+    
     
 }
 - (void)setupStateMachine{

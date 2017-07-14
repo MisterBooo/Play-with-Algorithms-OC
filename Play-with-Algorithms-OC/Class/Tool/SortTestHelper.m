@@ -97,6 +97,45 @@ static SortTestHelper *_instance;
     
 }
 
+/**
+ 根据数据获取排序时的各个状态
+ 
+ @param models models
+ @param type 排序类型
+ @return 状态机
+ */
+- (NSMutableArray *)statesWithModels:(NSMutableArray *)models type:(SortType)type{
+    NSMutableArray *states = [NSMutableArray array];
+    switch (type) {
+        case SortTypeSelection:
+        {
+            states = [self selectionSortFromModels:models];
+        }
+            break;
+        case SortTypeInsertion:
+        {
+            states = [self insertionSortFromModels:models];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    //打印出所有状态
+    for (int i = 0; i< states.count; i++) {
+        NSMutableArray *array = states[i];
+        for (int j = 0; j < array.count; j++) {
+            CWSortModel *model = array[j];
+            NSLog(@"%@",model.numberText);
+        }
+        NSLog(@"***********");
+    }
+    
+    return states;
+}
+
+
 
 
 - (NSMutableArray *)bubbleSort:(NSMutableArray *)array{
@@ -146,65 +185,104 @@ static SortTestHelper *_instance;
     
     return array;
 }
-- (NSMutableArray *)statesWithModels:(NSMutableArray *)models type:(SortType)type{
-    NSMutableArray *states = [NSMutableArray array];
-    switch (type) {
-        case SortTypeSelection:
-            {
-                for(int i = 0 ; i < models.count ; i ++){
-                    int minIndex = i;
-                    for( int j = i + 1 ; j < models.count ; j ++ ){
-                        //添加一个存储状态的数组
-                        //状态机
-                        NSMutableArray *array = [NSMutableArray array];
-                        for (int k = 0; k < models.count; k++) {
-                            CWSortModel *model_k = [[CWSortModel alloc] init];
-                            CWSortModel *model = models[k];
-                            if (k == j) {
-                                model_k.backgroundColor = UIColorGreen;
-                            }else if (k == minIndex){
-                                model_k.backgroundColor = UIColorRed;
-                            }else{
-                                model_k.backgroundColor = UIColorBlue;
-                            }
-                            if (k < i) {
-                                model_k.backgroundColor = UIColorYellow;
-                            }
-                            model_k.numberText = model.numberText;
-                            [array addObject:model_k];
-                        }
-                        
-                        CWSortModel *model_j = models[j];
-                        CWSortModel *model_minIndex = models[minIndex];
-                        
-                        if( model_j.numberText.intValue < model_minIndex.numberText.intValue ){
-                            minIndex = j;
-                        }
-                        [states addObject:array];
-                        
-                    }
-                    [models exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
-                }
 
-            }
-            break;
+
+/**
+ 选择排序
+
+ @param models 数据
+ @return 排序数组
+ */
+- (NSMutableArray *)selectionSortFromModels:(NSMutableArray *)models{
+    NSMutableArray *selectionArray = [NSMutableArray array];
+    for(int i = 0 ; i < models.count ; i ++){
+        int minIndex = i;
+        for( int j = i + 1 ; j < models.count ; j ++ ){
             
-        default:
-            break;
+//            NSMutableArray *array = [NSMutableArray array];
+//            for (int k = 0; k < models.count; k++) {
+//                CWSortModel *model_k = [[CWSortModel alloc] init];
+//                CWSortModel *model = models[k];
+//                if (k == j) {
+//                    model_k.backgroundColor = UIColorGreen;
+//                }else if (k == minIndex){
+//                    model_k.backgroundColor = UIColorRed;
+//                }else{
+//                    model_k.backgroundColor = UIColorYellow;
+//                }
+//                if (k < i) {
+//                    model_k.backgroundColor = UIColorBlue;
+//                }
+//                model_k.numberText = model.numberText;
+//                [array addObject:model_k];
+//            }
+            
+            //添加一个存储状态的数组
+            //状态机
+            NSMutableArray *array = [self setStateMachine:models indexI:j indexJ:minIndex];
+            [selectionArray addObject:array];
+            
+            CWSortModel *model_j = models[j];
+            CWSortModel *model_minIndex = models[minIndex];
+            
+            if( model_j.numberText.intValue < model_minIndex.numberText.intValue ){
+                minIndex = j;
+            }
+          
+        }
+        [models exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
+    }
+    return selectionArray;
+}
+
+- (NSMutableArray *)insertionSortFromModels:(NSMutableArray *)models{
+    NSMutableArray *insertionArray = [NSMutableArray array];
+    //写法1
+    for (int i = 1; i < models.count; i++) {
+        //寻找元素models[i]合适的插入位置
+        for (int j = i; j > 0; j--) {
+            CWSortModel *model_j = models[j];
+            CWSortModel *model_j_1 = models[j-1];
+            if (model_j.numberText.intValue < model_j_1.numberText.intValue) {
+                [models exchangeObjectAtIndex:j withObjectAtIndex:j-1];
+                //存储到状态机
+                NSMutableArray *array = [self setStateMachine:models indexI:j indexJ:j-1];
+                [insertionArray addObject:array];
+            }else{
+                //存储到状态机
+                NSMutableArray *array = [self setStateMachine:models indexI:j indexJ:j-1];
+                [insertionArray addObject:array];
+                break;
+            }
+        }
     }
     
-    //打印出所有状态
-    for (int i = 0; i< states.count; i++) {
-        NSMutableArray *array = states[i];
-        for (int j = 0; j < array.count; j++) {
-            CWSortModel *model = array[j];
-            NSLog(@"%@",model.numberText);
-        }
-        NSLog(@"***********");
-    }
-
-    return states;
+    return insertionArray;
 }
+
+- (NSMutableArray *)setStateMachine:(NSMutableArray *)models indexI:(int)i indexJ:(int)j {
+    //添加一个存储状态的数组
+    //状态机
+    NSMutableArray *array = [NSMutableArray array];
+    for (int k = 0; k < models.count; k++) {
+        CWSortModel *model_k = [[CWSortModel alloc] init];
+        CWSortModel *model = models[k];
+        model_k.backgroundColor = UIColorYellow;
+        if (k < i) {
+            model_k.backgroundColor = UIColorBlue;
+        }
+        if (k == i) {
+            model_k.backgroundColor = UIColorGreen;
+        }else if (k == j){
+            model_k.backgroundColor = UIColorRed;
+        }
+        model_k.numberText = model.numberText;
+        [array addObject:model_k];
+    }
+    return  array;
+}
+
+
 
 
 @end
