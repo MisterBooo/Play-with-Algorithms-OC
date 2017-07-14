@@ -117,6 +117,11 @@ static SortTestHelper *_instance;
             states = [self insertionSortFromModels:models];
         }
             break;
+        case SortTypeBubble:
+        {
+            states = [self bubbleSortFromModels:models];
+        }
+            break;
             
         default:
             break;
@@ -198,25 +203,6 @@ static SortTestHelper *_instance;
     for(int i = 0 ; i < models.count ; i ++){
         int minIndex = i;
         for( int j = i + 1 ; j < models.count ; j ++ ){
-            
-//            NSMutableArray *array = [NSMutableArray array];
-//            for (int k = 0; k < models.count; k++) {
-//                CWSortModel *model_k = [[CWSortModel alloc] init];
-//                CWSortModel *model = models[k];
-//                if (k == j) {
-//                    model_k.backgroundColor = UIColorGreen;
-//                }else if (k == minIndex){
-//                    model_k.backgroundColor = UIColorRed;
-//                }else{
-//                    model_k.backgroundColor = UIColorYellow;
-//                }
-//                if (k < i) {
-//                    model_k.backgroundColor = UIColorBlue;
-//                }
-//                model_k.numberText = model.numberText;
-//                [array addObject:model_k];
-//            }
-            
             //添加一个存储状态的数组
             //状态机
             NSMutableArray *array = [self setStateMachine:models indexI:j indexJ:minIndex];
@@ -235,6 +221,12 @@ static SortTestHelper *_instance;
     return selectionArray;
 }
 
+/**
+ 插入排序
+
+ @param models 数据
+ @return 排序数组
+ */
 - (NSMutableArray *)insertionSortFromModels:(NSMutableArray *)models{
     NSMutableArray *insertionArray = [NSMutableArray array];
     //写法1
@@ -260,6 +252,28 @@ static SortTestHelper *_instance;
     return insertionArray;
 }
 
+- (NSMutableArray *)bubbleSortFromModels:(NSMutableArray *)models{
+    NSMutableArray *bubbleArray = [NSMutableArray array];
+    bool swapped;
+    do {
+        swapped = false;
+        for (int i = 1; i < models.count; i++) {
+            CWSortModel *model_i = models[i];
+            CWSortModel *model_i_1 = models[i-1];
+            if (model_i.numberText.intValue < model_i_1.numberText.intValue) {
+                swapped = true;
+                [models exchangeObjectAtIndex:i withObjectAtIndex:i - 1];
+            }
+           [bubbleArray addObject: [self setStateMachine:models indexI:i indexJ:i - 1]];
+        }
+        [models removeLastObject];
+    } while (swapped);
+    return bubbleArray;
+}
+
+/**
+ 保存排序的状态
+ */
 - (NSMutableArray *)setStateMachine:(NSMutableArray *)models indexI:(int)i indexJ:(int)j {
     //添加一个存储状态的数组
     //状态机

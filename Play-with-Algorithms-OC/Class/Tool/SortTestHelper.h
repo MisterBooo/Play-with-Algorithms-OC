@@ -10,9 +10,11 @@
 #import "CWSortModel.h"
 typedef NS_ENUM(NSInteger,SortType){
     SortTypeSelection,
+    SortTypeInsertion,
+    SortTypeSheel,
     SortTypeBubble,
     SortTypeMerge,
-    SortTypeInsertion,
+    
 };
 
 

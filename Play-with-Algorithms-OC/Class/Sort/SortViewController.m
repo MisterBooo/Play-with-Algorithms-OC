@@ -53,7 +53,10 @@
         vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeSelection];
     }else if (indexPath.row == 2){
         vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeInsertion];
+    }else if (indexPath.row == 4){
+        vc = [[CWSortAnimationViewController alloc] initWithType:SortTypeBubble];
     }
+
     vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = self.dataSource[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
