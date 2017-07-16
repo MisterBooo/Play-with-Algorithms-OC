@@ -22,4 +22,5 @@
 @property(nonatomic, strong) NSMutableArray *stateArray;
 @property(nonatomic, assign) SortType sortType;
 - (void)reloadData;
+- (void)sortAnimation;
 @end
