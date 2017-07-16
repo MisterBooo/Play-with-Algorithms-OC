@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "CWSortModel.h"
-typedef NS_ENUM(NSInteger,SortType){
+typedef NS_ENUM(NSUInteger,SortType){
     SortTypeSelection,
     SortTypeInsertion,
-    SortTypeSheel,
     SortTypeBubble,
     SortTypeMerge,
+    SortTypeMergeOptimize,
+    SortTypeMergeBottomUp,
+    SortTypeSheel,
     
 };
 
@@ -23,6 +25,9 @@ typedef NS_ENUM(NSInteger,SortType){
 + (instancetype)shareInstance;
 
 @property(nonatomic, assign) SortType sortType;
+
+//保存归并排序的状态
+@property(nonatomic, strong) NSMutableArray *mergeStates;
 
 
 /**
@@ -45,12 +50,22 @@ typedef NS_ENUM(NSInteger,SortType){
 - (BOOL)isSorted:(NSArray *)array;
 
 
+- (NSMutableArray *)getMergeStates:(NSMutableArray *)array;
+
+
+
+/**
+ 
+
+ */
 /**
  测试sort排序算法排序arr数组所得到结果的正确性和算法运行时间
+
  @param sortType 排序算法
  @param array 测试数组
+ @return 描述
  */
-- (void)testSort:(SortType )sortType array:(NSMutableArray *)array;
+- (NSString *)testSort:(SortType )sortType array:(NSMutableArray *)array;
 
 
 

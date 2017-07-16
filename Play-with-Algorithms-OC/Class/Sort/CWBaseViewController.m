@@ -1,24 +1,18 @@
 //
-//  CWSortAnimationViewController.m
+//  CWBaseViewController.m
 //  Play-with-Algorithms-OC
 //
-//  Created by wuzhibo on 2017/7/13.
+//  Created by wuzhibo on 2017/7/15.
 //  Copyright © 2017年 CoderWoo. All rights reserved.
 //
 
-#import "CWSortAnimationViewController.h"
+#import "CWBaseViewController.h"
 
-@interface CWSortAnimationViewController ()
+@interface CWBaseViewController ()
 
 @end
 
-@implementation CWSortAnimationViewController
-
-- (instancetype)initWithType:(SortType)sortType{
-    self = [super init];
-    self.sortType = sortType;
-    return self;
-}
+@implementation CWBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +31,7 @@
 
 - (void)handleOrderItemEvent {
     self.isOrder = !self.isOrder;
+    
     //执行动画
     if (self.isOrder) {
         [self sortAnimation];
@@ -49,6 +44,9 @@
 
 
 - (void)sortAnimation{
+    if (self.dataSource.count == 0) {
+        return;
+    }
     [QMUITips showSucceed:[NSString stringWithFormat:@"本次排序总共进行了 %ld 次计算",self.stateArray.count] inView:self.view hideAfterDelay:1];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sortAction:) userInfo:nil repeats:YES];
     [timer fire];
@@ -84,41 +82,6 @@
 
 - (void)reloadData{
     
-    CGFloat width = 32;
-    CGFloat height = width;
-    CGFloat padding = 8;
-    
-    for (CWSortNumberView *numberView in self.view.subviews) {
-        [numberView removeFromSuperview];
-    }
-    [self.dataSource removeAllObjects];
-    [self.stateArray removeAllObjects];
-    [self.models removeAllObjects];
-    self.index = 0;
-    [_timer invalidate];
-    _timer = nil;
-    
-    for (int i = 0; i < 10; i++) {
-        int number = arc4random_uniform(100);
-        CWSortNumberView *numberView = [[CWSortNumberView alloc] init];
-        numberView.frame = CGRectMake((padding + width) * i + padding, 100, width, height );
-        
-        CWSortModel *model = [[CWSortModel alloc] init];
-        model.numberText = [NSString stringWithFormat:@"%d",number];
-        model.backgroundColor = UIColorYellow;
-        
-        numberView.model = model;
-        
-        [self.view addSubview:numberView];
-        [self.dataSource addObject:numberView];
-        
-        [self.models addObject:model];
-    }
-    self.stateArray =  [[SortTestHelper shareInstance] statesWithModels:self.models type:self.sortType];
-    
- 
-    
-    
 }
 - (void)setupStateMachine{
     //子类重写
@@ -149,6 +112,5 @@
     }
     return _models;
 }
-
 
 @end

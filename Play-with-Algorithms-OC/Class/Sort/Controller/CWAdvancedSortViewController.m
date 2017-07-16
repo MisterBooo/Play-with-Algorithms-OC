@@ -1,27 +1,28 @@
 //
-//  ViewController.m
+//  CWAdvancedSortViewController.m
 //  Play-with-Algorithms-OC
 //
-//  Created by wuzhibo on 2017/7/11.
+//  Created by wuzhibo on 2017/7/15.
 //  Copyright © 2017年 CoderWoo. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "SortViewController.h"
 #import "CWAdvancedSortViewController.h"
-#import "CWGraphBasicsViewController.h"
-@interface ViewController ()
+#import "CWMergeSortViewController.h"
+#import "CWMergeProcessViewController.h"
+@interface CWAdvancedSortViewController ()
 @property(nonatomic, strong) NSArray *dataSource;
+
 @end
 
-@implementation ViewController
+@implementation CWAdvancedSortViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"排序基础",@"高级排序算法",@"堆和堆排序",@"二分搜索树",@"并查集",@"图的基础",@"最小生成树",@"最短路径"];
-    [self.tableView reloadData];
+    // Do any additional setup after loading the view.
+    self.dataSource = @[@"归并排序动画",@"归并排序归并过程动画",@"快速排序动画"];
+    
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -44,24 +45,15 @@
     cell.textLabel.text = self.dataSource[indexPath.row];
     return cell;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QMUICommonViewController *vc = [[QMUICommonViewController alloc] init];
     if (indexPath.row == 0) {
-        vc = [[SortViewController alloc] init];
-    }else if(indexPath.row == 1){
-        vc = [[CWAdvancedSortViewController alloc] init];
-    }else if(indexPath.row == 5){
-        vc = [[CWGraphBasicsViewController alloc] init];
+        vc = [[CWMergeSortViewController alloc] init];
+    }else if (indexPath.row == 1){
+        vc = [[CWMergeProcessViewController alloc] init];
     }
-    
-    vc.title = self.dataSource[indexPath.row];
     vc.view.backgroundColor = [UIColor whiteColor];
-
+    vc.title = self.dataSource[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
-
 }
-
-
-
 @end

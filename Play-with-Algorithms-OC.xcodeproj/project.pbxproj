@@ -13,6 +13,11 @@
 		AA4AE24E1F174BA90099A7F2 /* CWSortAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */; };
 		AA4AE2531F18A2C80099A7F2 /* CWMazeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2521F18A2C80099A7F2 /* CWMazeSearchViewController.m */; };
 		AA4AE2561F18A2F70099A7F2 /* CWGraphBasicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2551F18A2F70099A7F2 /* CWGraphBasicsViewController.m */; };
+		AA4AE25A1F19A9770099A7F2 /* CWAdvancedSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2591F19A9770099A7F2 /* CWAdvancedSortViewController.m */; };
+		AA4AE25D1F19B06B0099A7F2 /* CWMergeSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE25C1F19B06B0099A7F2 /* CWMergeSortViewController.m */; };
+		AA4AE2601F19B4180099A7F2 /* UIColor+CWRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE25F1F19B4180099A7F2 /* UIColor+CWRandom.m */; };
+		AA4AE2631F1A2C0D0099A7F2 /* CWMergeProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2621F1A2C0D0099A7F2 /* CWMergeProcessViewController.m */; };
+		AA4AE2661F1A2C650099A7F2 /* CWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2651F1A2C650099A7F2 /* CWBaseViewController.m */; };
 		AA98EF661F1461C500582960 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF651F1461C500582960 /* main.m */; };
 		AA98EF691F1461C500582960 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF681F1461C500582960 /* AppDelegate.m */; };
 		AA98EF6C1F1461C500582960 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA98EF6B1F1461C500582960 /* ViewController.m */; };
@@ -49,6 +54,16 @@
 		AA4AE2521F18A2C80099A7F2 /* CWMazeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMazeSearchViewController.m; sourceTree = "<group>"; };
 		AA4AE2541F18A2F70099A7F2 /* CWGraphBasicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGraphBasicsViewController.h; sourceTree = "<group>"; };
 		AA4AE2551F18A2F70099A7F2 /* CWGraphBasicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWGraphBasicsViewController.m; sourceTree = "<group>"; };
+		AA4AE2581F19A9770099A7F2 /* CWAdvancedSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAdvancedSortViewController.h; sourceTree = "<group>"; };
+		AA4AE2591F19A9770099A7F2 /* CWAdvancedSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAdvancedSortViewController.m; sourceTree = "<group>"; };
+		AA4AE25B1F19B06B0099A7F2 /* CWMergeSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMergeSortViewController.h; sourceTree = "<group>"; };
+		AA4AE25C1F19B06B0099A7F2 /* CWMergeSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMergeSortViewController.m; sourceTree = "<group>"; };
+		AA4AE25E1F19B4180099A7F2 /* UIColor+CWRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CWRandom.h"; sourceTree = "<group>"; };
+		AA4AE25F1F19B4180099A7F2 /* UIColor+CWRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CWRandom.m"; sourceTree = "<group>"; };
+		AA4AE2611F1A2C0D0099A7F2 /* CWMergeProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMergeProcessViewController.h; sourceTree = "<group>"; };
+		AA4AE2621F1A2C0D0099A7F2 /* CWMergeProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMergeProcessViewController.m; sourceTree = "<group>"; };
+		AA4AE2641F1A2C650099A7F2 /* CWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBaseViewController.h; sourceTree = "<group>"; };
+		AA4AE2651F1A2C650099A7F2 /* CWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBaseViewController.m; sourceTree = "<group>"; };
 		AA98EF611F1461C500582960 /* Play-with-Algorithms-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Algorithms-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA98EF651F1461C500582960 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA98EF671F1461C500582960 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +134,12 @@
 				AA98EF991F149C6000582960 /* SortCompareViewController.m */,
 				AA4AE24C1F174BA90099A7F2 /* CWSortAnimationViewController.h */,
 				AA4AE24D1F174BA90099A7F2 /* CWSortAnimationViewController.m */,
+				AA4AE2581F19A9770099A7F2 /* CWAdvancedSortViewController.h */,
+				AA4AE2591F19A9770099A7F2 /* CWAdvancedSortViewController.m */,
+				AA4AE25B1F19B06B0099A7F2 /* CWMergeSortViewController.h */,
+				AA4AE25C1F19B06B0099A7F2 /* CWMergeSortViewController.m */,
+				AA4AE2611F1A2C0D0099A7F2 /* CWMergeProcessViewController.h */,
+				AA4AE2621F1A2C0D0099A7F2 /* CWMergeProcessViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +254,8 @@
 				AA4AE2261F15B26D0099A7F2 /* Controller */,
 				AA4AE2271F15B26D0099A7F2 /* Model */,
 				AA4AE2281F15B26D0099A7F2 /* View */,
+				AA4AE2641F1A2C650099A7F2 /* CWBaseViewController.h */,
+				AA4AE2651F1A2C650099A7F2 /* CWBaseViewController.m */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -242,6 +265,8 @@
 			children = (
 				AA98EF921F147AAE00582960 /* SortTestHelper.h */,
 				AA98EF931F147AAE00582960 /* SortTestHelper.m */,
+				AA4AE25E1F19B4180099A7F2 /* UIColor+CWRandom.h */,
+				AA4AE25F1F19B4180099A7F2 /* UIColor+CWRandom.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -403,15 +428,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA98EF8D1F1477B800582960 /* SelectionSort.m in Sources */,
+				AA4AE2631F1A2C0D0099A7F2 /* CWMergeProcessViewController.m in Sources */,
 				AA98EF6C1F1461C500582960 /* ViewController.m in Sources */,
 				AA98EF901F14796500582960 /* SortViewController.m in Sources */,
+				AA4AE25D1F19B06B0099A7F2 /* CWMergeSortViewController.m in Sources */,
+				AA4AE25A1F19A9770099A7F2 /* CWAdvancedSortViewController.m in Sources */,
 				AA4AE2531F18A2C80099A7F2 /* CWMazeSearchViewController.m in Sources */,
 				AA4AE2561F18A2F70099A7F2 /* CWGraphBasicsViewController.m in Sources */,
 				AA4AE2451F173E400099A7F2 /* CWSortModel.m in Sources */,
 				AA98EF9A1F149C6000582960 /* SortCompareViewController.m in Sources */,
 				AA98EF941F147AAE00582960 /* SortTestHelper.m in Sources */,
 				AA98EF691F1461C500582960 /* AppDelegate.m in Sources */,
+				AA4AE2601F19B4180099A7F2 /* UIColor+CWRandom.m in Sources */,
 				AA4AE24E1F174BA90099A7F2 /* CWSortAnimationViewController.m in Sources */,
+				AA4AE2661F1A2C650099A7F2 /* CWBaseViewController.m in Sources */,
 				AA98EF661F1461C500582960 /* main.m in Sources */,
 				AA4AE2381F1607D00099A7F2 /* CWSortNumberView.m in Sources */,
 			);

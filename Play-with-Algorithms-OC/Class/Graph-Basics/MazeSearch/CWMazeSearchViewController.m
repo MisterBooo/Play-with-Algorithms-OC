@@ -60,7 +60,7 @@
     cell.backgroundColor = [UIColor colorWithRed:(arc4random()%256)/256.f
                                            green:(arc4random()%256)/256.f
                                             blue:(arc4random()%256)/256.f
-                                           alpha:1.0f];;
+                                           alpha:1.0f];
     return cell;
 }
 

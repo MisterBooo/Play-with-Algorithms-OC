@@ -61,7 +61,7 @@ static SortTestHelper *_instance;
  @param sortType 排序算法
  @param array 测试数组
  */
-- (void)testSort:(SortType )sortType array:(NSMutableArray *)array{
+- (NSString *)testSort:(SortType )sortType array:(NSMutableArray *)array{
 //    NSLog(@"排序前%@",array);
     NSMutableArray *arrayM = [NSMutableArray array];
     NSString *sortName = @"排序方法";
@@ -87,9 +87,18 @@ static SortTestHelper *_instance;
         }
             break;
         case SortTypeMerge:{
-            arrayM = [self mergeSort:array];
+            arrayM = [self mergeSort1:array];
             sortName = @"归并排序";
-
+        }
+            break;
+        case SortTypeMergeOptimize:{
+            arrayM = [self mergeSort2:array];
+            sortName = @"优化后的归并排序";
+        }
+            break;
+        case SortTypeMergeBottomUp:{
+            arrayM = [self mergeSort2:array];
+            sortName = @"自底向上的归并排序";
         }
             break;
             
@@ -99,8 +108,9 @@ static SortTestHelper *_instance;
     CFTimeInterval endTime = CACurrentMediaTime();
     NSAssert([self isSorted:arrayM],@"排序失败");
     CFTimeInterval consumingTime = endTime - startTime;
-    NSLog(@"%@ :耗时：%@ s",sortName, @(consumingTime));
+    NSLog(@"%@:%@ s",sortName, @(consumingTime));
     NSLog(@"***************");
+    return [NSString stringWithFormat:@"%@:%@ s",sortName, @(consumingTime)];
 
    
 }
@@ -205,16 +215,29 @@ static SortTestHelper *_instance;
 }
 
 /**
- 归并排序
+ 归并排序1
 
  @param array array
  @return array
  */
-- (NSMutableArray *)mergeSort:(NSMutableArray *)array{
+- (NSMutableArray *)mergeSort1:(NSMutableArray *)array{
     //要特别注意边界的情况
     [self _mergeSort:array leftIndex:0 rightIndex:(int)array.count - 1];
     return array;
 }
+
+/**
+ 归并排序1
+ 
+ @param array array
+ @return array
+ */
+- (NSMutableArray *)mergeSort2:(NSMutableArray *)array{
+    //要特别注意边界的情况
+    [self _mergeSort:array leftIndex:0 rightIndex:(int)array.count - 1];
+    return array;
+}
+
 
 /**
   递归使用归并排序,对array[l...r]的范围进行排序
@@ -225,15 +248,12 @@ static SortTestHelper *_instance;
  */
 - (void)_mergeSort:(NSMutableArray *)array leftIndex:(int)l rightIndex:(int)r{
     if (l >= r ) return;
-    //会溢出
+    //数字太大会溢出
     int mid = (l + r) / 2;
-    
     [self _mergeSort:array leftIndex:l rightIndex:mid];
     [self _mergeSort:array leftIndex:mid + 1 rightIndex:r];
     [self __mergeSort1:array leftIndex:l midIndex:mid rightIndex:r];
-
 }
-
 
 /**
   将array[l...mid]和array[mid+1...r]两部分进行归并
@@ -266,11 +286,57 @@ static SortTestHelper *_instance;
                 array[k] = aux[j-l];
                 j++;
             }
-//            NSLog(@"array:%@",array);
-            
         }
+    if (!self.mergeStates) {
+        self.mergeStates = [NSMutableArray array];
+    }
+    [self.mergeStates addObject:array.mutableCopy];
+    
     
 }
+
+
+/**
+ 优化后的归并排序
+
+ @param array array
+ @param l l
+ @param r r
+ */
+- (void)__megerSort2:(NSMutableArray *)array leftIndex:(int)l rightIndex:(int)r{
+     // 优化2: 对于小规模数组, 使用插入排序
+    if (r - l <= 15) {
+        [self insertionSort:array leftIndex:l rightIndex:r];
+        return;
+    }
+    int mid = (l + r) / 2;
+    [self __megerSort2:array leftIndex:l rightIndex:mid];
+    [self __megerSort2:array leftIndex:mid + 1 rightIndex:r];
+    // 优化1: 对于arr[mid] <= arr[mid+1]的情况,不进行merge
+    // 对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失
+    if ([array[mid] intValue] > [array[mid + 1] intValue]) {
+        [self __mergeSort1:array leftIndex:l midIndex:mid rightIndex:r];
+    }
+    
+}
+/**
+ 对array[l...r]范围的数组进行插入排序
+ @param array array
+ @param l l
+ @param r r
+ */
+- (void)insertionSort:(NSMutableArray *)array leftIndex:(int)l rightIndex:(int)r{
+    for (int i = l+1; i <= r; i++) {
+        int e = [array[i] intValue];
+        int j;
+        for (j = i; j > l && [array[j - 1] intValue] > e; j--) {
+            array[j] = array[j - 1];
+        }
+        array[j] = @(e);
+    }
+}
+
+
 
 
 /**
@@ -352,42 +418,9 @@ static SortTestHelper *_instance;
     
     return insertionArray;
 }
+
 - (NSMutableArray *)shellSortFromModels:(NSMutableArray *)models{
     NSMutableArray *sheelArray = [NSMutableArray array];
-//    
-//    
-//    
-//    NSInteger gap,i;
-//    for ( gap = models.count/2; gap > 0; gap /=2) {
-//        for ( i = gap; i < models.count; i++) {
-//            CWSortModel *model_i = models[i];
-//            CWSortModel *model_i_gap = models[i-gap];
-//            if (model_i.numberText.integerValue < model_i_gap.numberText.integerValue ) {
-//                NSInteger target = model_i.numberText.integerValue;
-//                NSInteger j = i - gap;
-//                while (j >= 0 ) {
-//                    CWSortModel *model_j = models[j];
-//                    if (model_j.numberText.integerValue > target) {
-//                        models[j+gap] = model_j;
-//                        j -= gap;
-////                        [sheelArray addObject:[self setStateMachine:models indexI:i indexJ:j]];
-//                        for (int k = 0; k < models.count; k++) {
-//                            CWSortModel *model = models[k];
-//                            NSLog(@"%@",model.numberText);
-//                        }
-//                        NSLog(@"******");
-//
-//                    }
-//                }
-//                CWSortModel *model_gap = [[CWSortModel alloc] init];
-//                model_gap.numberText = [NSString stringWithFormat:@"%ld",target];
-//                models[j+gap] = model_gap;
-//            }
-//            
-//        }
-//        
-//    }
-    
 
     // 计算 increment sequence: 1, 4, 13, 40, 121, 364, 1093...
     int h = 1;
@@ -476,6 +509,18 @@ static SortTestHelper *_instance;
 }
 
 
+/**
+ 获取归并排序的每个状态
+
+ @param array array
+ @return 状态机
+ */
+- (NSMutableArray *)getMergeStates:(NSMutableArray *)array{
+    //要特别注意边界的情况
+    [self.mergeStates removeAllObjects];
+    [self _mergeSort:array leftIndex:0 rightIndex:(int)array.count - 1];
+    return self.mergeStates;
+}
 
 
 @end
