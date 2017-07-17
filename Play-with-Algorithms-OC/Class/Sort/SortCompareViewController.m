@@ -88,7 +88,7 @@
     dialogViewController.title = @"选择对比的算法";
     dialogViewController.titleView.subtitle = @"可多选";
     dialogViewController.allowsMultipleSelection = YES;// 打开多选
-    dialogViewController.items = @[@"选择排序", @"插入排序", @"冒泡排序", @"归并排序",@"优化后的归并排序",@"自底向上的归并排序",@"快速排序"];
+    dialogViewController.items = @[@"选择排序", @"插入排序", @"冒泡排序", @"归并排序",@"优化后的归并排序",@"自底向上的归并排序",@"快速排序",@"双路快速排序",@"三路快速排序"];
     [dialogViewController addCancelButtonWithText:@"取消" block:nil];
     __weak __typeof(self)weakSelf = self;
     [dialogViewController addSubmitButtonWithText:@"确定" block:^(QMUIDialogViewController *aDialogViewController) {

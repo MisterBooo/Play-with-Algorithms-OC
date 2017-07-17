@@ -62,7 +62,7 @@ static SortTestHelper *_instance;
  @param array 测试数组
  */
 - (NSString *)testSort:(SortType )sortType array:(NSMutableArray *)array{
-//    NSLog(@"排序前%@",array);
+
     NSMutableArray *arrayM = [NSMutableArray array];
     NSString *sortName = @"排序方法";
 
@@ -101,6 +101,11 @@ static SortTestHelper *_instance;
             sortName = @"自底向上的归并排序";
         }
             break;
+        case SortTypeQuick:{
+            arrayM = [self quickSort:array];
+            sortName = @"快速排序";
+        }
+            break;
             
         default:
             break;
@@ -110,9 +115,7 @@ static SortTestHelper *_instance;
     CFTimeInterval consumingTime = endTime - startTime;
     NSLog(@"%@:%@ s",sortName, @(consumingTime));
     NSLog(@"***************");
-    return [NSString stringWithFormat:@"%@:%@ s",sortName, @(consumingTime)];
-
-   
+    return [NSString stringWithFormat:@"%@:%f s",sortName, consumingTime];
 }
 
 /**
@@ -160,6 +163,7 @@ static SortTestHelper *_instance;
     
     return states;
 }
+
 
 
 
@@ -227,16 +231,61 @@ static SortTestHelper *_instance;
 }
 
 /**
- 归并排序1
+ 归并排序2
  
  @param array array
  @return array
  */
 - (NSMutableArray *)mergeSort2:(NSMutableArray *)array{
     //要特别注意边界的情况
-    [self _mergeSort:array leftIndex:0 rightIndex:(int)array.count - 1];
+    [self __megerSort2:array leftIndex:0 rightIndex:(int)array.count - 1];
     return array;
 }
+
+- (NSMutableArray *)quickSort:(NSMutableArray *)array{
+    [self __quickSort:array indexL:0 indexR:(int)array.count - 1];
+    return array;
+}
+
+/**
+  对arr[l...r]部分进行快速排序
+
+ @param array array
+ @param l 左
+ @param r 右
+ */
+- (void)__quickSort:(NSMutableArray *)array indexL:(int)l indexR:(int)r{
+    if (l >= r) return;
+    int p = [self __partition:array indexL:l indexR:r];
+    [self __quickSort:array indexL:l indexR:p-1];
+    [self __quickSort:array indexL:p + 1 indexR:r];
+}
+
+/**
+对arr[l...r]部分进行partition操作
+ 返回p, 使得arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
+
+ @param array array
+ @param l 左
+ @param r 右
+ @return 返回p
+ */
+- (int)__partition:(NSMutableArray *)array indexL:(int)l indexR:(int)r{
+    
+    NSString *v = array[l];
+    int j = l;// arr[l+1...j] < v ; arr[j+1...i) > v
+    for (int i = l + 1; i <= r ; i++) {
+        if ([array[i] intValue] < [v intValue]) {
+            j++;
+            //交换
+            [array exchangeObjectAtIndex:j withObjectAtIndex:i];
+        }
+    }
+    [array exchangeObjectAtIndex:j withObjectAtIndex:l];
+    return j;
+}
+
+
 
 
 /**

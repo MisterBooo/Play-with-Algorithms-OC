@@ -13,9 +13,12 @@ typedef NS_ENUM(NSUInteger,SortType){
     SortTypeInsertion,
     SortTypeBubble,
     SortTypeMerge,
-    SortTypeMergeOptimize,
+    SortTypeMergeOptimize, //归并排序的优化
     SortTypeMergeBottomUp,
+    SortTypeQuick,
+    
     SortTypeSheel,
+    
     
 };
 
