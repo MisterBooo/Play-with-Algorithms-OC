@@ -74,6 +74,8 @@ swapTimes定义了数组的无序程度
     }
     return true;
 }
+
+#pragma mark - 测试sort排序算法排序arr数组所得到结果的正确性和算法运行时间
 /**
  测试sort排序算法排序arr数组所得到结果的正确性和算法运行时间
  @param sortType 排序算法
