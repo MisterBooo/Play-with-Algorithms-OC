@@ -29,16 +29,34 @@ static SortTestHelper *_instance;
  @return 数组
  */
 - (NSMutableArray *)generateRandomArrayNumber:(int )number rangeL:(int )rangeL rangeR:(int)rangeR{
-
     NSAssert(rangeL <= rangeR, @"右区间必须不小于左区间");
-    
     NSMutableArray *arrayM = [NSMutableArray array];
     for (int i = 0; i < number; i++) {
         [arrayM addObject:@(arc4random_uniform(rangeR - rangeL) + rangeL)];
     }
-    
     return arrayM;
 }
+
+/**
+生成一个近乎有序的数组
+首先生成一个含有[0...n-1]的完全有序数组, 之后随机交换swapTimes对数据
+swapTimes定义了数组的无序程度
+ */
+- (NSMutableArray *)generateNearlyOrderedArray:(int )arrayCount swapTimes:(int )swapTimes{
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < arrayCount; i++) {
+        [array addObject:@(i)];
+    }
+    for (int i = 0; i < swapTimes; i++) {
+        int posx = arc4random() % arrayCount;
+        int posy = arc4random() % arrayCount;
+        [array exchangeObjectAtIndex:posx withObjectAtIndex:posy];
+    }
+    return array;
+}
+
+
+
 /**
  判断array数组是否有序
  
@@ -104,6 +122,11 @@ static SortTestHelper *_instance;
         case SortTypeQuick:{
             arrayM = [self quickSort:array];
             sortName = @"快速排序";
+        }
+            break;
+        case SortTypeIdenticalQuick:{
+            arrayM = [self quickSort2:array];
+            sortName = @"双路快速排序";
         }
             break;
             
@@ -376,6 +399,11 @@ static SortTestHelper *_instance;
     return array;
 }
 
+- (NSMutableArray *)quickSort2:(NSMutableArray *)array{
+    [self __quickSort2:array indexL:0 indexR:(int)array.count - 1];
+    return array;
+}
+
 /**
   对arr[l...r]部分进行快速排序
 
@@ -414,6 +442,52 @@ static SortTestHelper *_instance;
     return j;
 }
 
+/**
+ 对arr[l...r]部分进行快速排序
+ 
+ @param array array
+ @param l 左
+ @param r 右
+ */
+- (void)__quickSort2:(NSMutableArray *)array indexL:(int)l indexR:(int)r{
+    if (l >= r) return;
+    //调用双路快速排序的partition
+    int p = [self __partition2:array indexL:l indexR:r];
+    [self __quickSort:array indexL:l indexR:p-1];
+    [self __quickSort:array indexL:p + 1 indexR:r];
+}
+/**
+ 双路快速排序的partition
+ 返回p, 使得arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
+ */
+- (int)__partition2:(NSMutableArray *)array indexL:(int)l indexR:(int)r{
+    
+    // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
+    [array exchangeObjectAtIndex:l withObjectAtIndex:(arc4random()%(r-l+1))];
+    int v = [array[l] intValue];
+    
+    // arr[l+1...i) <= v; arr(j...r] >= v
+    int i = l + 1, j = r;
+    while (true) {
+    
+        while (i <= r && [array[i] intValue] < v)
+            i++;
+        
+        while (j > l + 1 &&[array[j] intValue] > v)
+            j--;
+        
+        if (i > j) {
+            break;
+        }
+        [array exchangeObjectAtIndex:i withObjectAtIndex:j];
+        
+        i++;
+        j--;
+    }
+    [array exchangeObjectAtIndex:l withObjectAtIndex:j];
+    return j;
+    
+}
 
 
 

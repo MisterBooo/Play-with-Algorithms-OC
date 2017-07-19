@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger,SortType){
     SortTypeMergeOptimize, //归并排序的优化
     SortTypeMergeBottomUp,
     SortTypeQuick,
-    
+    SortTypeIdenticalQuick,//双路快排
     SortTypeSheel,
     
     
@@ -43,7 +43,12 @@ typedef NS_ENUM(NSUInteger,SortType){
  */
 - (NSMutableArray *)generateRandomArrayNumber:(int )number rangeL:(int )rangeL rangeR:(int)rangeR;
 
-
+/**
+ 生成一个近乎有序的数组
+ 首先生成一个含有[0...n-1]的完全有序数组, 之后随机交换swapTimes对数据
+ swapTimes定义了数组的无序程度
+ */
+- (NSMutableArray *)generateNearlyOrderedArray:(int )arrayCount swapTimes:(int )swapTimes;
 /**
  数组是否排序
 

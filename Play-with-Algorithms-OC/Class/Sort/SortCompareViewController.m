@@ -32,6 +32,8 @@
     [_button setTitle:@"点击选取对比的排序算法" forState:UIControlStateNormal];
     [self.view addSubview:_button];
     
+   
+    
     
     
     _textField = [[QMUITextField alloc] init];
@@ -77,11 +79,9 @@
     self.label.frame = CGRectMake(padding.left, CGRectGetMaxY(self.button.frame) + 18, buttonSize.width,400);
     
     
-    
 }
 
 #pragma mark - Private
-
 - (void)compareSort{
     QMUIDialogSelectionViewController *dialogViewController = [[QMUIDialogSelectionViewController alloc] init];
     dialogViewController.titleView.style = QMUINavigationTitleViewStyleSubTitleVertical;
