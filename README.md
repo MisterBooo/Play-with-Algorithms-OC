@@ -437,5 +437,7 @@ Merge Sort BU 也是一个O(nlogn)复杂度的算法，虽然只使用两重for�
 
 ![](http://oriq21dog.bkt.clouddn.com/bloc/2017-07-20-Snip20170720_7.png)
 
- * 1. 首先在l到r的范围中，随机选取一个数值作为标定点pivot
- * 2. 
+
+# To be continued
+ 
+ 
